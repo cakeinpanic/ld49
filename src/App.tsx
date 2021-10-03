@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import { Buttons } from './Buttons'
 import { LoadedContextProvider } from './context/loaded.context'
@@ -14,6 +14,7 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false)
   const [showControls, setShowControls] = useState(false)
   const [score, setScore] = useState(0)
+  const [lampState, setLampState] = useState(getStateByScore(score))
 
   const [allIsLoaded, setAllIsLoaded] = useState(false)
 
@@ -23,6 +24,10 @@ function App() {
     }
   }, [gameStarted])
 
+  useEffect(() => {
+    setLampState(getStateByScore(score))
+  }, [score])
+
   const setGameOver = () => {
 
   }
@@ -31,12 +36,14 @@ function App() {
     <>
       <LoadedContextProvider setAllIsLoaded={setAllIsLoaded}>
         <SpeechContextProvider setGameOver={setGameOver}>
-          <ScoreContext.Provider value={{ score, setScore,lampState: getStateByScore(score) }}>
+          <ScoreContext.Provider value={{ score, setScore, lampState }}>
+
             <Music gameStarted={gameStarted}/>
             {!allIsLoaded && <button className="loading-btn btn--stripe btn">
               Loading...
             </button>}
             <div className="Game" style={{ opacity: allIsLoaded ? 1 : 0 }}>
+              <div className={'light bg ' + lampState}/>
               <Lamp/>
               {showControls && <Speech/>}
               {

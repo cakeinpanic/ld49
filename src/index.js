@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <link href="https://fonts.googleapis.com/css?family=Baloo+2:400,800" rel="stylesheet"/>
-    <div className="light bg"/>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
