@@ -9,16 +9,29 @@
     justify-content: center;
 }
 
+#root::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(yellow 10%, transparent 70%);
+    opacity: .1;
+    -webkit-filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%);
+    position: absolute;
+    -webkit-transition : -webkit-filter 500ms linear;
+    transition : filter 500ms linear;
+}
+
 .Game {
-    width: 800px;
-    height: 600px;
-    background: var(--bg);
+    width: 1000px;
+    height: 900px;
     position: relative;
 }
 
+
+
 .img {
     width: 100%;
-    height: 100%;
     position: absolute;
 }
 
