@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ld49/static/css/main.b409a4b4.chunk.css",
+    "main.css": "/ld49/static/css/main.d0fe2627.chunk.css",
     "main.js": "/ld49/static/js/main.41c74716.chunk.js",
     "main.js.map": "/ld49/static/js/main.41c74716.chunk.js.map",
     "runtime-main.js": "/ld49/static/js/runtime-main.32c9e119.js",
@@ -14,7 +14,7 @@
     "normal.mp3": "/ld49/91186c71ad4e82001831e6aefacfc75f.mp3",
     "happy.mp3": "/ld49/d2278987e445e6e84db2e19883660273.mp3",
     "index.html": "/ld49/index.html",
-    "static/css/main.b409a4b4.chunk.css.map": "/ld49/static/css/main.b409a4b4.chunk.css.map",
+    "static/css/main.d0fe2627.chunk.css.map": "/ld49/static/css/main.d0fe2627.chunk.css.map",
     "static/js/2.4957474d.chunk.js.LICENSE.txt": "/ld49/static/js/2.4957474d.chunk.js.LICENSE.txt",
     "static/js/3.48cb7836.chunk.js.LICENSE.txt": "/ld49/static/js/3.48cb7836.chunk.js.LICENSE.txt",
     "static/media/lamp.cf80ac2c.png": "/ld49/static/media/lamp.cf80ac2c.png",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.32c9e119.js",
     "static/js/2.4957474d.chunk.js",
-    "static/css/main.b409a4b4.chunk.css",
+    "static/css/main.d0fe2627.chunk.css",
     "static/js/main.41c74716.chunk.js"
   ]
 }
