@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FIRST_PHRASE, IAnswer, IState, REST_PHRASES } from '../phrases'
+import { FIRST_PHRASE, IAnswer, IState, REST_PHRASES } from '../PHRASES'
 
 export interface ISpeechContext {
   currentPhraseIndex: number

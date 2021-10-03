@@ -4,11 +4,11 @@ import './App.css'
 import { Buttons } from './Buttons'
 import { ScoreContext } from './context/score.context'
 import { SpeechContextProvider } from './context/speech.context'
-import lamp from './lamp.png'
-import light from './light.png'
+import lamp from './assets/lamp.png'
+import light from './assets/light.png'
 import { Speech } from './Speech'
 
-const music = require('./music.mp3').default
+const music = require('./assets/music.mp3').default
 const root = document.documentElement
 
 function getRandomBetween(min: number, max: number) {
