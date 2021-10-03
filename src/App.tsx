@@ -1,3 +1,4 @@
+import useSound from 'use-sound'
 import './App.css'
 import lamp from './lamp.png'
 import light from './light.png'
@@ -30,6 +31,11 @@ function blink() {
 function App() {
   changeColor(0)
   blink()
+
+  const [play] = useSound('./music.mp3',{loop: true})
+
+  play()
+
   return (
     <div className="Game">
       <img className="img light" src={light}/>
