@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import useSound from 'use-sound'
 import './App.css'
 import { LoadedContext } from './context/loaded.context'
@@ -10,6 +10,9 @@ const sad = require('./assets/ludum_dare_beta_-2.5.mp3').default
 const neutral = require('./assets/ludum_dare_beta_0.mp3').default
 const ok = require('./assets/ludum_dare_beta_2.5.mp3').default
 const happy = require('./assets/ludum_dare_beta_5.mp3').default
+
+const plus = require('./assets/ludum_dare_beta_plus.mp3').default
+const minus = require('./assets/ludum_dare_beta_minus.mp3').default
 
 const VOLUME = .35
 const FADE_DURATION = 800
@@ -36,7 +39,12 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   const [, { sound: okSound }] = useSound(ok, params)
   const [, { sound: happySound }] = useSound(happy, params)
 
+  const [, { sound: plusJingle }] = useSound(plus, { loop: false, volume: VOLUME })
+  const [, { sound: minusJingle }] = useSound(minus, { loop: false, volume: VOLUME })
+
   const [currentSound, setCurrentSound] = useState<eLampState | null>(null)
+
+  const prevScore = useRef<number>(score)
 
   useEffect(() => {
     if (neutralSound?.state() === 'loaded'
@@ -70,6 +78,19 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     },
     [lampState, gameStarted]
   )
+
+  useEffect(() => {
+    console.log(prevScore.current, score)
+    if (prevScore.current === score) {
+      return
+    }
+    if (prevScore.current < score) {
+      plusJingle?.play()
+    } else {
+      minusJingle?.play()
+    }
+    prevScore.current = score
+  }, [score, minusJingle, plusJingle])
 
   useEffect(() => {
     doSound(currentSound, eLampState.neutral, neutralSound)
