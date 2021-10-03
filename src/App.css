@@ -21,3 +21,15 @@
     height: 100%;
     position: absolute;
 }
+
+:root {
+    --brightness: 100%;
+    --saturate: 100%;
+    --hue: 0;
+}
+.light {
+    -webkit-filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%);
+    filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%);
+    -webkit-transition : -webkit-filter 500ms linear;
+    transition : filter 500ms linear;
+}
