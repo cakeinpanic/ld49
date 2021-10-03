@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import useSound from 'use-sound'
 import './App.css'
 import lamp from './lamp.png'
@@ -33,13 +34,16 @@ function App() {
   blink()
 
   const [play] = useSound(music,{loop: true, soundEnabled: true, volume: .4})
-debugger
-  play()
+  const [showBtn, setShowBtn]= useState(true)
 
   return (
     <div className="Game">
       <img className="img light" src={light}/>
       <img className="img lamp" src={lamp}/>
+      { showBtn && <button className="btn" onClick={()=>{
+        play();
+        setShowBtn(false)
+      }}>Play</button>}
     </div>
   )
 }

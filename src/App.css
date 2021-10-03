@@ -24,6 +24,13 @@
     position: relative;
 }
 
+@media (max-width: 1000px) {
+    .Game {
+        width: 100%;
+        height: 50%;
+    }
+}
+
 
 .img {
     width: 100%;
@@ -42,4 +49,12 @@
     filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%)  opacity(var(--opacity-filter));
     transition: filter 500ms linear, opacity 100ms linear;
     opacity: var(--opacity);
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    height: 100px;
 }
