@@ -21,6 +21,7 @@ body, html{
 
 body {
     background-color: var(--bg);
+    transition: background-color 1s ease-in;
 
 }
 

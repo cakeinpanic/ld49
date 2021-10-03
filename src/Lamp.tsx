@@ -12,7 +12,27 @@ import { eLampState } from './lampState.enum'
 const LAMP_ID = 'lamp'
 
 function getRandomBetween([min, max]: number[]) {
-  return Math.random() * (max - min) + min
+  const random = Math.random() * (max - min) + min
+  console.log(random, min, max)
+  return random
+}
+
+function setBgColor(lampState: eLampState) {
+  const root = document.body
+
+  switch (lampState) {
+    case eLampState.happy:
+    case eLampState.ok:
+    case eLampState.neutral:
+      root?.style.setProperty('--bg', '#3d3d46')
+      break
+    case eLampState.sad:
+      root?.style.setProperty('--bg', '#1d1d26')
+      break
+    case eLampState.nightmare:
+      root?.style.setProperty('--bg', '#1a1a1d')
+  }
+
 }
 
 export function Lamp() {
@@ -27,7 +47,7 @@ export function Lamp() {
     let nextBlink = [1000, 2000]
     switch (lampState) {
       case eLampState.nightmare:
-        withoutLight = [100, 800]
+        withoutLight = [100, 1500]
         nextBlink = [100, 500]
         break
       case eLampState.sad:
@@ -48,7 +68,7 @@ export function Lamp() {
       root?.style.setProperty('--opacity-filter', '100%')
       blinkTimeoutRef.current = setTimeout(() => {
         blink()
-      }, getRandomBetween([1000, 1000]))
+      }, getRandomBetween(nextBlink))
     }, getRandomBetween(withoutLight))
   }, [lampState])
 
@@ -61,7 +81,7 @@ export function Lamp() {
       root?.style.setProperty('--hue', getRandomBetween([0, 180]) + 'deg')
       root?.style.setProperty('--saturate', getRandomBetween([70, 120]) + '%')
     } else {
-      root?.style.setProperty('--brightness', 50 + '%')
+
       root?.style.setProperty('--hue', 0 + 'deg')
       root?.style.setProperty('--saturate', 30 + '%')
     }
@@ -83,8 +103,9 @@ export function Lamp() {
   }, [lampState])
 
   useEffect(() => {
-    // changeColor()
+    changeColor()
     blink()
+    setBgColor(lampState)
   }, [lampState, changeColor, blink])
 
   const { imagesAreLoaded } = useContext(LoadedContext)
