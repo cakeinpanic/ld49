@@ -4,7 +4,7 @@ import './App.css'
 import { Buttons } from './Buttons'
 import lamp from './lamp.png'
 import light from './light.png'
-
+import {ScoreContext} from './score.context'
 const music = require('./music.mp3').default
 const root = document.documentElement
 
@@ -41,6 +41,7 @@ function App() {
 
   return (
     <>
+      <ScoreContext.Provider value={{ score, setScore }}>
       <div className="Game">
         <img className="img light" src={light}/>
         <img className="img lamp" src={lamp}/>
@@ -50,6 +51,7 @@ function App() {
         {/*}}>Play</button>}*/}
       </div>
       <Buttons/>
+      </ScoreContext.Provider>
     </>
   )
 }

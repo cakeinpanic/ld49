@@ -1,11 +1,12 @@
+import { useContext } from 'react'
 import './Buttons.css'
-import { useState } from 'react'
+import { ScoreContext } from './score.context'
 
 const music = require('./music.mp3').default
 const root = document.documentElement
 
 export function Buttons() {
-  const [score, setScore] = useState(0)
+  const { score, setScore } = useContext(ScoreContext)
 
   const makeSadder = () => {
     const newScore = score - 1
@@ -19,6 +20,7 @@ export function Buttons() {
 
   return (
     <div className="Buttons">
+      <div className="score">Score: {score}</div>
       <div className="btn btn--stripe btn--large">Hug</div>
       <div className="btn btn--stripe btn--large">Say hi</div>
       <div className="btn btn--stripe btn--large">Make tea</div>
