@@ -12,7 +12,7 @@
 .Game {
     width: 800px;
     height: 600px;
-    background: #3d3d46;
+    background: var(--bg);
     position: relative;
 }
 
@@ -27,6 +27,7 @@
     --saturate: 100%;
     --hue: 0;
 }
+
 .light {
     -webkit-filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%);
     filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%);
