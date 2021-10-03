@@ -6,12 +6,12 @@ import { ScoreContext } from './context/score.context'
 
 const nightmare = require('./assets/ludum_dare_beta_-5.mp3').default
 const sad = require('./assets/ludum_dare_beta_-2.5.mp3').default
-const normal = require('./assets/ludum_dare_beta_0.mp3').default
+const neutral = require('./assets/ludum_dare_beta_0.mp3').default
 const ok = require('./assets/ludum_dare_beta_2.5.mp3').default
 const happy = require('./assets/ludum_dare_beta_5.mp3').default
 
 enum eSound {
-  happy = 'happy', ok = 'ok', normal = 'normal', sad = 'sad', nightmare = 'nightmare'
+  happy = 'happy', ok = 'ok', neutral = 'neutral', sad = 'sad', nightmare = 'nightmare'
 }
 
 const VOLUME = .2
@@ -37,7 +37,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
 
   const [, { sound: nightmareSound }] = useSound(nightmare, params)
   const [, { sound: sadSound }] = useSound(sad, params)
-  const [, { sound: normalSound }] = useSound(normal, params)
+  const [, { sound: neutralSound }] = useSound(neutral, params)
   const [, { sound: okSound }] = useSound(ok, params)
   const [, { sound: happySound }] = useSound(happy, params)
 
@@ -45,7 +45,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
 
   useEffect(() => {
 
-    if (normalSound?.state() === 'loaded'
+    if (neutralSound?.state() === 'loaded'
       && okSound?.state() === 'loaded'
       && nightmareSound?.state() === 'loaded'
       && sadSound?.state() === 'loaded'
@@ -53,14 +53,14 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     ) {
       soundLoaded && soundLoaded(true)
     }
-  }, [soundLoaded, normalSound, happySound, nightmareSound, sadSound, okSound])
+  }, [soundLoaded, neutralSound, happySound, nightmareSound, sadSound, okSound])
 
   //useEffect(() => {
   //
-  //  console.log(score, currentSound, [happySound, okSound, normalSound, sadSound, nightmareSound].map(s => {
+  //  console.log(score, currentSound, [happySound, okSound, neutralSound, sadSound, nightmareSound].map(s => {
   //    return (s?.volume() + s?.state())
   //  }))
-  //}, [currentSound, score,  normalSound, happySound, okSound, sadSound, nightmareSound])
+  //}, [currentSound, score,  neutralSound, happySound, okSound, sadSound, nightmareSound])
 
   useEffect(() => {
     if (!gameStarted) {
@@ -77,7 +77,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
       return
     }
     if (score > -2.5) {
-      setCurrentSound(eSound.normal)
+      setCurrentSound(eSound.neutral)
       return
     }
     if (score > -5) {
@@ -89,12 +89,12 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   }, [score, gameStarted])
 
   useEffect(() => {
-    doSound(currentSound, eSound.normal, normalSound)
+    doSound(currentSound, eSound.neutral, neutralSound)
     doSound(currentSound, eSound.nightmare, nightmareSound)
     doSound(currentSound, eSound.sad, sadSound)
     doSound(currentSound, eSound.ok, okSound)
     doSound(currentSound, eSound.happy, happySound)
-  }, [currentSound, normalSound, happySound, okSound, sadSound, nightmareSound])
+  }, [currentSound, neutralSound, happySound, okSound, sadSound, nightmareSound])
 
   return (
     <>
