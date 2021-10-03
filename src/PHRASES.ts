@@ -50,5 +50,49 @@ export const REST_PHRASES: IState[] = [
         'score': 1
       }
     ]
-  }
+  },
+  {
+    'question': 'I feel abused, everyone uses me to get what they want!',
+    used: false,
+    'answers': [
+      {
+        text: 'Hug',
+        'score': 1
+      },
+      {
+        'text': 'Turn him off',
+        'score': -4
+      },
+      {
+        'text': '...',
+        'score': -1
+      },
+      {
+        'text': 'Your are helping people to see things at night or just to feel cozy, you are good lamp',
+        'score': 3
+      }
+    ]
+  },
+  {
+    'question': 'I don\'t have any friends, why do other lamps avoid me?',
+    used: false,
+    'answers': [
+      {
+        text: 'I\'m not a lamp, but we can be friends',
+        'score': 2
+      },
+      {
+        'text': 'Nobody wanna be a friend with you, you are just an old lamp',
+        'score': -5
+      },
+      {
+        'text': 'Start looking for another lamp',
+        'score': -2
+      },
+      {
+        'text': 'Tell me more about other lamps, why do think so?',
+        'score': 1
+      }
+    ]
+  },
 ]
