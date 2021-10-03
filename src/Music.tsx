@@ -20,7 +20,7 @@ function doSound(currentSound: eLampState | null, soundState: eLampState, howler
     return
   }
   if (!howlerObject.playing()) {
-   // howlerObject.play()
+    howlerObject.play()
   }
   if (currentSound === soundState) {
     howlerObject.fade(howlerObject.volume(), VOLUME, FADE_DURATION)

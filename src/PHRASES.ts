@@ -14,15 +14,15 @@ export const FIRST_PHRASE: IState = {
     },
     {
       'text': 'I\'m not interested',
-      'score': -2
+      'score': -1
     },
     {
       'text': 'You look sad, Greg, wanna talk?',
-      'score': 3
+      'score': .5
     },
     {
       'text': 'Wow, talking lamp, lol',
-      'score': -1
+      'score': -.5
     }
   ]
 }
@@ -35,19 +35,19 @@ export const REST_PHRASES: IState[] = [
     'answers': [
       {
         text: 'Hug',
-        'score': 2
+        'score': 1
       },
       {
         'text': 'Ignore',
-        'score': -2
-      },
-      {
-        'text': 'Everyone\'s lonely...',
         'score': -1
       },
       {
+        'text': 'Everyone\'s lonely...',
+        'score': -.5
+      },
+      {
         'text': 'I\'m lonely too',
-        'score': 1
+        'score': .5
       }
     ]
   },
@@ -61,15 +61,15 @@ export const REST_PHRASES: IState[] = [
       },
       {
         'text': 'Turn him off',
-        'score': -4
-      },
-      {
-        'text': '...',
         'score': -1
       },
       {
+        'text': '...',
+        'score': -.5
+      },
+      {
         'text': 'Your are helping people to see things at night or just to feel cozy, you are good lamp',
-        'score': 3
+        'score': 1
       }
     ]
   },
@@ -79,19 +79,19 @@ export const REST_PHRASES: IState[] = [
     'answers': [
       {
         text: 'I\'m not a lamp, but we can be friends',
-        'score': 2
+        'score': 1
       },
       {
         'text': 'Nobody wanna be a friend with you, you are just an old lamp',
-        'score': -5
-      },
-      {
-        'text': 'Start looking for another lamp',
         'score': -2
       },
       {
+        'text': 'Start looking for another lamp',
+        'score': -1
+      },
+      {
         'text': 'Tell me more about other lamps, why do think so?',
-        'score': 1
+        'score': .5
       }
     ]
   },
