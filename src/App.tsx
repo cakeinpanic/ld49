@@ -1,10 +1,14 @@
-import logo from './logo.svg';
+import lamp from './lamp.png';
+import light from './light.png';
 import './App.css';
 
 function App() {
   return (
+     <div className="Game">
+       <img className="img light" src={light}/>
+       <img className="img lamp" src={lamp}/>
 
-     <div className="Game"></div>
+     </div>
   );
 }
 
