@@ -19,45 +19,32 @@
 }
 
 .Game {
-    width: 1000px;
-    height: 900px;
+    width: 600px;
+    height: 600px;
     position: relative;
-    left: 66px;
+    left: 32px;
+    top: -32px;
 }
 
 @media (max-width: 1000px) {
-    #root *{
-        display: none;
-    }
-    #root:after{
-        content: 'sry, only on desktop';
-        font-family: "Baloo 2", cursive;
-        color: white;
-    }
+    /*#root *{*/
+    /*    display: none;*/
+    /*}*/
+    /*#root:after{*/
+    /*    content: 'sry, only on desktop';*/
+    /*    font-family: "Baloo 2", cursive;*/
+    /*    color: white;*/
+    /*}*/
     .Game {
+        top: 20px;
         width: 100%;
         height: 50%;
     }
-}
 
-
-.img {
-    width: 100%;
-    position: absolute;
-}
-
-:root {
-    --brightness: 100%;
-    --saturate: 100%;
-    --hue: 0;
-    --opacity: 100%;
-    --opacity-filter: 100%;
-}
-
-.light {
-    filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%)  opacity(var(--opacity-filter));
-    transition: filter 500ms linear, opacity 100ms linear;
-    opacity: var(--opacity);
+    .Game .start-btn {
+        left: calc(50% - 144px);
+        top: calc(50% - 113px);
+    }
 }
 
 .start-btn {

@@ -1,0 +1,21 @@
+
+
+.img {
+    width: 100%;
+    position: absolute;
+    transition: all 1s;
+}
+
+:root {
+    --brightness: 100%;
+    --saturate: 100%;
+    --hue: 0;
+    --opacity: 100%;
+    --opacity-filter: 100%;
+}
+
+.light {
+    filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%)  opacity(var(--opacity-filter));
+    transition: filter 500ms linear, opacity 100ms linear, opacity 2s linear;
+    opacity: var(--opacity);
+}

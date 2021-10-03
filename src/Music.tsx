@@ -20,7 +20,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   const prevSoundRef = useRef<eSound | null>()
 
   useEffect(() => {
-    if (!gameStarted) {
+    if (true || !gameStarted) {
       return
     }
 

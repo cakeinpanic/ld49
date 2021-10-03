@@ -4,11 +4,11 @@
     place-items: center;
     font: 2vw system-ui;
     position: absolute;
-    left: calc(50% - 240px);
-    top: calc(50% - 148px);
-    width :100px;
-    height: 100px;
 
+    width :200px;
+
+    left: calc(50% - 275px);
+    top: calc(50% - 162px);
     animation: 1s ease-out 0s 1 slideInFromBottom;
     opacity: 0;
     animation-delay: .5s;
@@ -28,13 +28,13 @@
     letter-spacing: 3px;
     font-size: 15px;
     color: #774f38;
-    background-color: #ece5ce;
+    background-color: rgba(#ece5ce, .8);
+    /*background-color: rgba(255,255,255,.8);*/
     padding: 14px 50px;
     border-radius: 11px;
     position: relative;
     /*box-shadow: 20px 20px #83af9b;*/
     font-family: "Baloo 2", cursive;
-
 }
 
 .speech:after {
