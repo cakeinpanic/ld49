@@ -11,36 +11,55 @@ import { eLampState } from './lampState.enum'
 
 const LAMP_ID = 'lamp'
 
-function getRandomBetween(min: number, max: number) {
+function getRandomBetween([min, max]: number[]) {
   return Math.random() * (max - min) + min
-}
-
-function blink() {
-  const root = document.getElementById(LAMP_ID)
-
-  root?.style.setProperty('--opacity', '0%')
-  setTimeout(() => {
-    root?.style.setProperty('--opacity', '100%')
-    setTimeout(() => {
-      blink()
-    }, getRandomBetween(1000, 10000))
-  }, getRandomBetween(100, 200))
 }
 
 export function Lamp() {
   const { lampState } = useContext(ScoreContext)
 
-  blink()
-
   const timeoutRef = useRef<any>()
+  const blinkTimeoutRef = useRef<any>()
+
+  const blink = useCallback(() => {
+    const root = document.body
+    let withoutLight = [100, 200]
+    let nextBlink = [1000, 2000]
+    switch (lampState) {
+      case eLampState.nightmare:
+        withoutLight = [100, 800]
+        nextBlink = [100, 500]
+        break
+      case eLampState.sad:
+        withoutLight = [200, 500]
+        nextBlink = [1000, 4000]
+        break
+      case eLampState.neutral:
+        withoutLight = [100, 200]
+        nextBlink = [5000, 8000]
+        break
+    }
+
+    clearTimeout(blinkTimeoutRef.current)
+    if (lampState === eLampState.nightmare || lampState === eLampState.sad || lampState === eLampState.neutral) {
+      root?.style.setProperty('--opacity-filter', '0%')
+    }
+    setTimeout(() => {
+      root?.style.setProperty('--opacity-filter', '100%')
+      blinkTimeoutRef.current = setTimeout(() => {
+        blink()
+      }, getRandomBetween([1000, 1000]))
+    }, getRandomBetween(withoutLight))
+  }, [lampState])
+
   const changeColor = useCallback(() => {
     clearTimeout(timeoutRef.current)
     const root = document.getElementById(LAMP_ID)
 
     if (lampState === eLampState.ok || lampState === eLampState.happy || lampState === eLampState.neutral) {
-      root?.style.setProperty('--brightness', getRandomBetween(70, 120) + '%')
-      root?.style.setProperty('--hue', getRandomBetween(0, 180) + 'deg')
-      root?.style.setProperty('--saturate', getRandomBetween(70, 120) + '%')
+      root?.style.setProperty('--brightness', getRandomBetween([70, 120]) + '%')
+      root?.style.setProperty('--hue', getRandomBetween([0, 180]) + 'deg')
+      root?.style.setProperty('--saturate', getRandomBetween([70, 120]) + '%')
     } else {
       root?.style.setProperty('--brightness', 50 + '%')
       root?.style.setProperty('--hue', 0 + 'deg')
@@ -60,12 +79,13 @@ export function Lamp() {
         break
     }
 
-    timeoutRef.current = setTimeout(changeColor, getRandomBetween(nextChange[0], nextChange[1]))
+    timeoutRef.current = setTimeout(changeColor, getRandomBetween(nextChange))
   }, [lampState])
 
   useEffect(() => {
-    changeColor()
-  }, [lampState])
+    // changeColor()
+    blink()
+  }, [lampState, changeColor, blink])
 
   const { imagesAreLoaded } = useContext(LoadedContext)
   const [loadedCount, setLoadedCount] = useState(0)
@@ -81,15 +101,16 @@ export function Lamp() {
   return (
     <div id={LAMP_ID}>
       <img className="img light"
-           style={{ opacity: lampState === eLampState.happy || lampState === eLampState.ok ? 1 : 0 }} src={light}
+           style={{ opacity: lampState === eLampState.happy || lampState === eLampState.ok ? undefined : 0 }}
+           src={light}
            onLoad={imgLoaded}/>
       <img className="img light"
-           style={{ opacity: lampState === eLampState.neutral || lampState === eLampState.sad ? 1 : 0 }}
+           style={{ opacity: lampState === eLampState.neutral || lampState === eLampState.sad ? undefined : 0 }}
            src={mediumLight} onLoad={imgLoaded}/>
       <img className="img lamp" style={{ opacity: lampState !== eLampState.nightmare ? 1 : 0 }} src={lamp}
            onLoad={imgLoaded}/>
 
-      <img className="img light" style={{ opacity: lampState === eLampState.nightmare ? 1 : 0 }} src={sadLight}
+      <img className="img light" style={{ opacity: lampState === eLampState.nightmare ? undefined : 0 }} src={sadLight}
            onLoad={imgLoaded}/>
       <img className="img lamp" style={{ opacity: lampState === eLampState.nightmare ? 1 : 0 }} src={sadLamp}
            onLoad={imgLoaded}/>
