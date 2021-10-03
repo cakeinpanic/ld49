@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
-import useSound from 'use-sound'
 import './App.css'
 import lamp from './assets/lamp.png'
 import light from './assets/light.png'
 import { Buttons } from './Buttons'
 import { ScoreContext } from './context/score.context'
 import { SpeechContextProvider } from './context/speech.context'
+import { Music } from './Music'
 import { Speech } from './Speech'
 
-const music = require('./assets/music.mp3').default
 const root = document.documentElement
 
 function getRandomBetween(min: number, max: number) {
@@ -38,14 +37,12 @@ function App() {
   changeColor(0)
   blink()
 
-  const [play] = useSound(music, { loop: true, soundEnabled: true, volume: .4 })
   const [gameStarted, setGameStarted] = useState(false)
   const [showControls, setShowControls] = useState(false)
   const [score, setScore] = useState(0)
 
   useEffect(() => {
     if (gameStarted) {
-      play()
       setShowControls(true)
     }
   }, [gameStarted])
@@ -56,9 +53,10 @@ function App() {
 
   return (
     <>
+
       <SpeechContextProvider setGameOver={setGameOver}>
         <ScoreContext.Provider value={{ score, setScore }}>
-
+          <Music gameStarted={gameStarted}/>
           <div className="Game">
             <img className="img light" src={light}/>
             <img className="img lamp" src={lamp}/>

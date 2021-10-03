@@ -29,8 +29,8 @@ export function SpeechContextProvider({ setGameOver, children }: { setGameOver: 
   const setNextPhrase = () => {
     PHRASES[currentPhraseIndex].used = true
     if (currentPhraseIndex === PHRASES.length - 1) {
-      setCurrentPhraseIndex(-1)
-      setGameOver()
+      setCurrentPhraseIndex(0)
+      //setGameOver()
     } else {
       setCurrentPhraseIndex(currentPhraseIndex + 1)
     }
