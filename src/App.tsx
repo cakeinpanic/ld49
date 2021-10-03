@@ -2,9 +2,11 @@ import { useState } from 'react'
 import useSound from 'use-sound'
 import './App.css'
 import { Buttons } from './Buttons'
+import { Speech } from './Speech'
 import lamp from './lamp.png'
 import light from './light.png'
-import {ScoreContext} from './score.context'
+import {ScoreContext} from './context/score.context'
+
 const music = require('./music.mp3').default
 const root = document.documentElement
 
@@ -45,6 +47,7 @@ function App() {
       <div className="Game">
         <img className="img light" src={light}/>
         <img className="img lamp" src={lamp}/>
+        <Speech/>
         {/*{showBtn && <button className="start-btn" onClick={() => {*/}
         {/*  // play();*/}
         {/*  setShowBtn(false)*/}
