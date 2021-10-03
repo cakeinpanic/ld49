@@ -11,7 +11,8 @@ const neutral = require('./assets/ludum_dare_beta_0.mp3').default
 const ok = require('./assets/ludum_dare_beta_2.5.mp3').default
 const happy = require('./assets/ludum_dare_beta_5.mp3').default
 
-const VOLUME = .2
+const VOLUME = .35
+const FADE_DURATION = 800
 const params = { loop: true, soundEnabled: true, volume: 0 }
 
 function doSound(currentSound: eLampState | null, soundState: eLampState, howlerObject: any) {
@@ -22,9 +23,9 @@ function doSound(currentSound: eLampState | null, soundState: eLampState, howler
    // howlerObject.play()
   }
   if (currentSound === soundState) {
-    howlerObject.fade(howlerObject.volume(), VOLUME, 500)
+    howlerObject.fade(howlerObject.volume(), VOLUME, FADE_DURATION)
   } else {
-    howlerObject.fade(howlerObject.volume(), 0, 500)
+    howlerObject.fade(howlerObject.volume(), 0, FADE_DURATION)
   }
 }
 
