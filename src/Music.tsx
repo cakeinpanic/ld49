@@ -19,9 +19,6 @@ function doSound(currentSound: eLampState | null, soundState: eLampState, howler
   if (!howlerObject) {
     return
   }
-  if (!howlerObject.playing()) {
-    howlerObject.play()
-  }
   if (currentSound === soundState) {
     howlerObject.fade(howlerObject.volume(), VOLUME, FADE_DURATION)
   } else {
@@ -42,7 +39,6 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   const [currentSound, setCurrentSound] = useState<eLampState | null>(null)
 
   useEffect(() => {
-
     if (neutralSound?.state() === 'loaded'
       && okSound?.state() === 'loaded'
       && nightmareSound?.state() === 'loaded'
@@ -50,9 +46,15 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
       && happySound?.state() === 'loaded'
     ) {
       soundLoaded && soundLoaded(true)
+      neutralSound.play()
+      okSound.play()
+      happySound.play()
+      nightmareSound.play()
+      sadSound.play()
     }
-  }, [soundLoaded, neutralSound, happySound, nightmareSound, sadSound, okSound])
 
+  }, [soundLoaded, neutralSound, happySound, nightmareSound, sadSound, okSound])
+  //
   //useEffect(() => {
   //
   //  console.log(score, currentSound, [happySound, okSound, neutralSound, sadSound, nightmareSound].map(s => {

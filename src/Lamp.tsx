@@ -13,7 +13,7 @@ const LAMP_ID = 'lamp'
 
 function getRandomBetween([min, max]: number[]) {
   const random = Math.random() * (max - min) + min
-  console.log(random, min, max)
+//  console.log(random, min, max)
   return random
 }
 
