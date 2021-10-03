@@ -34,8 +34,8 @@ function blink() {
 }
 
 function App() {
-  changeColor(0)
-  blink()
+  //changeColor(0)
+  //blink()
 
   const [play] = useSound(music, { loop: true, soundEnabled: true, volume: .4 })
   const [showBtn, setShowBtn] = useState(true)
