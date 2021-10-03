@@ -2,10 +2,11 @@ import { useState } from 'react'
 import useSound from 'use-sound'
 import './App.css'
 import { Buttons } from './Buttons'
-import { Speech } from './Speech'
+import { ScoreContext } from './context/score.context'
+import { SpeechContextProvider } from './context/speech.context'
 import lamp from './lamp.png'
 import light from './light.png'
-import {ScoreContext} from './context/score.context'
+import { Speech } from './Speech'
 
 const music = require('./music.mp3').default
 const root = document.documentElement
@@ -34,27 +35,33 @@ function blink() {
 }
 
 function App() {
-  //changeColor(0)
-  //blink()
+  changeColor(0)
+  blink()
 
   const [play] = useSound(music, { loop: true, soundEnabled: true, volume: .4 })
   const [showBtn, setShowBtn] = useState(true)
   const [score, setScore] = useState(0)
 
+  const setGameOver = () => {
+
+  }
+
   return (
     <>
+    <SpeechContextProvider setGameOver={setGameOver}>
       <ScoreContext.Provider value={{ score, setScore }}>
-      <div className="Game">
-        <img className="img light" src={light}/>
-        <img className="img lamp" src={lamp}/>
-        <Speech/>
-        {/*{showBtn && <button className="start-btn" onClick={() => {*/}
-        {/*  // play();*/}
-        {/*  setShowBtn(false)*/}
-        {/*}}>Play</button>}*/}
-      </div>
-      <Buttons/>
+          <div className="Game">
+            <img className="img light" src={light}/>
+            <img className="img lamp" src={lamp}/>
+            <Speech/>
+            {/*{showBtn && <button className="start-btn" onClick={() => {*/}
+            {/*  // play();*/}
+            {/*  setShowBtn(false)*/}
+            {/*}}>Play</button>}*/}
+          </div>
+        <Buttons/>
       </ScoreContext.Provider>
+    </SpeechContextProvider>
     </>
   )
 }

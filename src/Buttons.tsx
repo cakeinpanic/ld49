@@ -1,27 +1,25 @@
 import { useContext } from 'react'
 import './Buttons.css'
 import { ScoreContext } from './context/score.context'
+import { SpeechContext } from './context/speech.context'
 
 export function Buttons() {
   const { score, setScore } = useContext(ScoreContext)
+  const { getAnswers, setNextPhrase } = useContext(SpeechContext)
 
-  const makeSadder = () => {
-    const newScore = score - 1
-    setScore(newScore)
+  const clicked = (answerScore:number) => {
+    setScore(score + answerScore)
+    setNextPhrase()
+
   }
-
-  const makeHappier = () => {
-    const newScore = score + 1
-    setScore(newScore)
-  }
-
   return (
     <div className="Buttons">
       <div className="score">Score: {score}</div>
-      <div className="btn btn--stripe btn--large">Hug</div>
-      <div className="btn btn--stripe btn--large">Say hi</div>
-      <div className="btn btn--stripe btn--large">Make tea</div>
-      <div className="btn btn--stripe btn--large">Punch</div>
+      {
+        getAnswers()
+          .map(
+            a => <div className="btn btn--stripe btn--large" onClick={() => clicked(a.score)}>{a.text}</div>)
+      }
     </div>
   )
 }
