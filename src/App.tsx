@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useSound from 'use-sound'
 import './App.css'
+import lamp from './assets/lamp.png'
+import light from './assets/light.png'
 import { Buttons } from './Buttons'
 import { ScoreContext } from './context/score.context'
 import { SpeechContextProvider } from './context/speech.context'
-import lamp from './assets/lamp.png'
-import light from './assets/light.png'
 import { Speech } from './Speech'
 
 const music = require('./assets/music.mp3').default
@@ -39,8 +39,16 @@ function App() {
   blink()
 
   const [play] = useSound(music, { loop: true, soundEnabled: true, volume: .4 })
-  const [showBtn, setShowBtn] = useState(true)
+  const [gameStarted, setGameStarted] = useState(false)
+  const [showControls, setShowControls] = useState(false)
   const [score, setScore] = useState(0)
+
+  useEffect(() => {
+    if (gameStarted) {
+      play()
+      setShowControls(true)
+    }
+  }, [gameStarted])
 
   const setGameOver = () => {
 
@@ -48,20 +56,22 @@ function App() {
 
   return (
     <>
-    <SpeechContextProvider setGameOver={setGameOver}>
-      <ScoreContext.Provider value={{ score, setScore }}>
+      <SpeechContextProvider setGameOver={setGameOver}>
+        <ScoreContext.Provider value={{ score, setScore }}>
+
           <div className="Game">
             <img className="img light" src={light}/>
             <img className="img lamp" src={lamp}/>
-            <Speech/>
-            {/*{showBtn && <button className="start-btn" onClick={() => {*/}
-            {/*  // play();*/}
-            {/*  setShowBtn(false)*/}
-            {/*}}>Play</button>}*/}
+            {showControls && <Speech/>}
+            {!gameStarted && <button className="btn--stripe start-btn btn" onClick={() => {
+              setGameStarted(true)
+            }}>Play</button>}
           </div>
-        <Buttons/>
-      </ScoreContext.Provider>
-    </SpeechContextProvider>
+          {showControls && <Buttons/>}
+
+
+        </ScoreContext.Provider>
+      </SpeechContextProvider>
     </>
   )
 }

@@ -8,10 +8,17 @@
     top: calc(50% - 148px);
     width :100px;
     height: 100px;
+
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+    opacity: 0;
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
+
 }
 
 .speech {
     transform: translatey(0px);
+    pointer-events: none;
     -webkit-animation: float 5s ease-in-out infinite;
     animation: float 5s ease-in-out infinite;
     mix-blend-mode: multiply;

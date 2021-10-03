@@ -7,7 +7,7 @@ export function Buttons() {
   const { score, setScore } = useContext(ScoreContext)
   const { getAnswers, setNextPhrase } = useContext(SpeechContext)
 
-  const clicked = (answerScore:number) => {
+  const clicked = (answerScore: number) => {
     setScore(score + answerScore)
     setNextPhrase()
 
@@ -18,7 +18,8 @@ export function Buttons() {
       {
         getAnswers()
           .map(
-            a => <div className="btn btn--stripe btn--large" onClick={() => clicked(a.score)}>{a.text}</div>)
+            a => <div className="btn btn--stripe" key={a.text}
+                      onClick={() => clicked(a.score)}>{a.text}</div>)
       }
     </div>
   )
