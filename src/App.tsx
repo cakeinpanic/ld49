@@ -39,7 +39,6 @@ function App() {
             <div className="Game" style={{ opacity: allIsLoaded ? 1 : 0 }}>
               <Lamp/>
               {showControls && <Speech/>}
-
               {
                 !gameStarted &&
                 <button className="btn--stripe start-btn btn"
