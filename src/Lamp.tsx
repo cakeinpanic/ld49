@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import lamp from './assets/lamp.png'
 import light from './assets/light.png'
 import mediumLight from './assets/medium_light.png'
@@ -15,17 +15,6 @@ function getRandomBetween(min: number, max: number) {
   return Math.random() * (max - min) + min
 }
 
-function changeColor(timeout: number) {
-  const root = document.getElementById(LAMP_ID)
-
-  setTimeout(() => {
-    root?.style.setProperty('--brightness', getRandomBetween(70, 120) + '%')
-    root?.style.setProperty('--hue', getRandomBetween(0, 180) + 'deg')
-    root?.style.setProperty('--saturate', getRandomBetween(70, 120) + '%')
-    changeColor(getRandomBetween(1000, 10000))
-  }, timeout)
-}
-
 function blink() {
   const root = document.getElementById(LAMP_ID)
 
@@ -39,10 +28,44 @@ function blink() {
 }
 
 export function Lamp() {
-  changeColor(0)
+  const { lampState } = useContext(ScoreContext)
+
   blink()
 
-  const { score, lampState } = useContext(ScoreContext)
+  const timeoutRef = useRef<any>()
+  const changeColor = useCallback(() => {
+    clearTimeout(timeoutRef.current)
+    const root = document.getElementById(LAMP_ID)
+
+    if (lampState === eLampState.ok || lampState === eLampState.happy || lampState === eLampState.neutral) {
+      root?.style.setProperty('--brightness', getRandomBetween(70, 120) + '%')
+      root?.style.setProperty('--hue', getRandomBetween(0, 180) + 'deg')
+      root?.style.setProperty('--saturate', getRandomBetween(70, 120) + '%')
+    } else {
+      root?.style.setProperty('--brightness', 50 + '%')
+      root?.style.setProperty('--hue', 0 + 'deg')
+      root?.style.setProperty('--saturate', 30 + '%')
+    }
+    let nextChange = [1000, 1000]
+
+    switch (lampState) {
+      case eLampState.happy:
+        nextChange = [500, 1000]
+        break
+      case eLampState.ok:
+        nextChange = [2000, 5000]
+        break
+      case eLampState.neutral:
+        nextChange = [2000, 5000]
+        break
+    }
+
+    timeoutRef.current = setTimeout(changeColor, getRandomBetween(nextChange[0], nextChange[1]))
+  }, [lampState])
+
+  useEffect(() => {
+    changeColor()
+  }, [lampState])
 
   const { imagesAreLoaded } = useContext(LoadedContext)
   const [loadedCount, setLoadedCount] = useState(0)

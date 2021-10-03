@@ -5,14 +5,16 @@ export interface ILoadedContext {
   imagesAreLoaded?: Function
 }
 
-export const LoadedContext = React.createContext<ILoadedContext>({  })
+export const LoadedContext = React.createContext<ILoadedContext>({})
 
 export function LoadedContextProvider({ children, setAllIsLoaded }: { children: any, setAllIsLoaded: Function }) {
   const [sound, setSound] = useState(false)
   const [images, setImages] = useState(false)
 
   useEffect(() => {
-    setTimeout(setAllIsLoaded(sound && images),1000)
+    if(sound && images){
+      setTimeout(setAllIsLoaded(sound && images), 1000)
+    }
   }, [sound, images, setAllIsLoaded])
 
   return (

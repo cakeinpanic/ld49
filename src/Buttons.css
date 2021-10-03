@@ -63,7 +63,6 @@
     border: 0;
     background: transparent;
     font: inherit;
-    line-height: normal;
     cursor: pointer;
     -moz-user-select: text;
     display: block;
@@ -79,6 +78,10 @@
     font-family: "Baloo 2", cursive;
     font-weight: bold;
     opacity: .8;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-size: 14px;
+    max-width: 200px;
 }
 
 .btn--stripe {
