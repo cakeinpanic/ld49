@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
 import lamp from './assets/lamp.png'
-import sadLamp from './assets/sad_lamp.png'
 import light from './assets/light.png'
 import mediumLight from './assets/medium_light.png'
+import sadLamp from './assets/sad_lamp.png'
 import sadLight from './assets/sad_light.png'
+import { LoadedContext } from './context/loaded.context'
 import { ScoreContext } from './context/score.context'
 import './Lamp.css'
 
@@ -45,6 +46,9 @@ export function Lamp() {
   const [showMedium, setShowMedium] = useState(false)
   const [showSad, setShowSad] = useState(false)
 
+  const { imagesAreLoaded } = useContext(LoadedContext)
+  const [loadedCount, setLoadedCount] = useState(0)
+
   useEffect(() => {
     setShowSad(false)
     setShowMedium(false)
@@ -62,14 +66,22 @@ export function Lamp() {
 
   }, [score])
 
+  const imgLoaded = () => {
+    setLoadedCount(loadedCount + 1)
+
+    if (loadedCount === 4) {
+      imagesAreLoaded && imagesAreLoaded(true)
+    }
+  }
+
   return (
     <div id={LAMP_ID}>
-      <img className="img light"style={{opacity: showBright ? 1 : 0}} src={light}/>
-       <img className="img light" style={{opacity: showMedium ? 1 : 0}} src={mediumLight}/>
-       <img className="img lamp" style={{opacity: (showBright || showMedium) ? 1 : 0}} src={lamp}/>
+      <img className="img light" style={{ opacity: showBright ? 1 : 0 }} src={light} onLoad={imgLoaded}/>
+      <img className="img light" style={{ opacity: showMedium ? 1 : 0 }} src={mediumLight} onLoad={imgLoaded}/>
+      <img className="img lamp" style={{ opacity: (showBright || showMedium) ? 1 : 0 }} src={lamp} onLoad={imgLoaded}/>
 
-       <img className="img light" style={{opacity: showSad ? 1 : 0}} src={sadLight}/>
-       <img className="img lamp" style={{opacity: showSad ? 1 : 0}} src={sadLamp}/>
+      <img className="img light" style={{ opacity: showSad ? 1 : 0 }} src={sadLight} onLoad={imgLoaded}/>
+      <img className="img lamp" style={{ opacity: showSad ? 1 : 0 }} src={sadLamp} onLoad={imgLoaded}/>
     </div>
   )
 }

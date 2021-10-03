@@ -1,6 +1,7 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import useSound from 'use-sound'
 import './App.css'
+import { LoadedContext } from './context/loaded.context'
 import { ScoreContext } from './context/score.context'
 
 const normal = require('./assets/normal.mp3').default
@@ -14,6 +15,8 @@ const VOLUME = .4
 
 export function Music({ gameStarted }: { gameStarted: boolean }) {
   const { score } = useContext(ScoreContext)
+  const { soundLoaded } = useContext(LoadedContext)
+
 
   const [playNormal, { sound: normalSound }] = useSound(normal,
     { loop: true, soundEnabled: true, volume: 0 })
@@ -21,7 +24,12 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     { loop: true, soundEnabled: true, volume: 0 })
   const [currentSound, setCurrentSound] = useState<eSound | null>(null)
 
-  const prevSoundRef = useRef<eSound | null>()
+  useEffect(() => {
+
+    if (normalSound?.state() === 'loaded' && happySound?.state() === 'loaded') {
+      soundLoaded && soundLoaded(true)
+    }
+  }, [soundLoaded,normalSound, happySound])
 
   useEffect(() => {
     if (!gameStarted) {
@@ -59,7 +67,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     } else {
       normalSound.fade(normalSound.volume(), 0, 500)
     }
-  }, [currentSound, normalSound])
+  }, [currentSound, normalSound, playNormal])
 
   useEffect(() => {
     if (!happySound) {
@@ -73,39 +81,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     } else {
       happySound.fade(happySound.volume(), 0, 500)
     }
-  }, [currentSound, happySound])
-
-  //useEffect(() => {
-  //  if (!currentSound || (prevSoundRef.current !== null && prevSoundRef.current === currentSound)) {
-  //    return
-  //  }
-  //  switch (prevSoundRef.current) {
-  //    case eSound.normal:
-  //      normalSound.fade(1, 0, 500)
-  //      break
-  //    case eSound.sad:
-  //      break
-  //    case eSound.happy:
-  //      stopHappy()
-  //      break
-  //  }
-  //
-  //  switch (currentSound) {
-  //    case eSound.normal:
-  //      playNormal()
-  //      break
-  //    case eSound.sad:
-  //      break
-  //    case eSound.happy:
-  //      playHappy()
-  //      break
-  //  }
-  //
-  //}, [currentSound, stopNormal, stopHappy, playHappy, playNormal])
-
-  useEffect(() => {
-    prevSoundRef.current = currentSound
-  }, [currentSound])
+  }, [currentSound, happySound, playHappy])
 
   return (
     <>
