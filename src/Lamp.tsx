@@ -42,6 +42,7 @@ export function Lamp() {
   blink()
 
   const { score } = useContext(ScoreContext)
+
   const [showBright, setShowBright] = useState(false)
   const [showMedium, setShowMedium] = useState(false)
   const [showSad, setShowSad] = useState(false)

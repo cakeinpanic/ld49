@@ -3,7 +3,7 @@ import useSound from 'use-sound'
 import './App.css'
 import { LoadedContext } from './context/loaded.context'
 import { ScoreContext } from './context/score.context'
-import { eLampState, getStateByScore } from './lampState.enum'
+import { eLampState } from './lampState.enum'
 
 const nightmare = require('./assets/ludum_dare_beta_-5.mp3').default
 const sad = require('./assets/ludum_dare_beta_-2.5.mp3').default
@@ -29,7 +29,7 @@ function doSound(currentSound: eLampState | null, soundState: eLampState, howler
 }
 
 export function Music({ gameStarted }: { gameStarted: boolean }) {
-  const { score } = useContext(ScoreContext)
+  const { score, lampState } = useContext(ScoreContext)
   const { soundLoaded } = useContext(LoadedContext)
 
   const [, { sound: nightmareSound }] = useSound(nightmare, params)
@@ -60,15 +60,12 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   //}, [currentSound, score,  neutralSound, happySound, okSound, sadSound, nightmareSound])
 
   useEffect(() => {
-    if (!gameStarted) {
-      return
-    }
-
-    if (score > 2.5) {
-      setCurrentSound(getStateByScore(score))
-    }
-  },
-    [score, gameStarted]
+      if (!gameStarted) {
+        return
+      }
+      setCurrentSound(lampState)
+    },
+    [lampState, gameStarted]
   )
 
   useEffect(() => {

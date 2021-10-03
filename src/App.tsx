@@ -5,6 +5,7 @@ import { LoadedContextProvider } from './context/loaded.context'
 import { ScoreContext } from './context/score.context'
 import { SpeechContextProvider } from './context/speech.context'
 import { Lamp } from './Lamp'
+import { getStateByScore } from './lampState.enum'
 import { Music } from './Music'
 import { Speech } from './Speech'
 
@@ -13,6 +14,7 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false)
   const [showControls, setShowControls] = useState(false)
   const [score, setScore] = useState(0)
+
   const [allIsLoaded, setAllIsLoaded] = useState(false)
 
   useEffect(() => {
@@ -29,7 +31,7 @@ function App() {
     <>
       <LoadedContextProvider setAllIsLoaded={setAllIsLoaded}>
         <SpeechContextProvider setGameOver={setGameOver}>
-          <ScoreContext.Provider value={{ score, setScore }}>
+          <ScoreContext.Provider value={{ score, setScore,lampState: getStateByScore(score) }}>
             <Music gameStarted={gameStarted}/>
             {!allIsLoaded && <button className="loading-btn btn--stripe btn">
               Loading...
