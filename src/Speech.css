@@ -1,0 +1,112 @@
+.speech-container {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    font: 2vw system-ui;
+    position: absolute;
+    left: calc(50% - 240px);
+    top: calc(50% - 148px);
+    width :100px;
+    height: 100px;
+}
+
+.speech {
+    transform: translatey(0px);
+    -webkit-animation: float 5s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
+    mix-blend-mode: multiply;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 15px;
+    color: #774f38;
+    background-color: #ece5ce;
+    padding: 14px 50px;
+    border-radius: 11px;
+    position: relative;
+    /*box-shadow: 20px 20px #83af9b;*/
+    font-family: "Baloo 2", cursive;
+
+}
+
+.speech:after {
+
+    transform: translatey(0px);
+    -webkit-animation: float2 5s ease-in-out infinite;
+    animation: float2 5s ease-in-out infinite;
+    content: ".";
+    font-weight: bold;
+    -webkit-text-fill-color: #ece5ce;
+    /*text-shadow: 22px 22px #83af9b;*/
+    text-align: right;
+    font-size: 55px;
+    width: 55px;
+    height: 11px;
+    line-height: 30px;
+    border-radius: 11px;
+    background-color: #ece5ce;
+    position: absolute;
+    display: block;
+    bottom: -30px;
+    right: 0;
+    /*box-shadow: 22px 22px #83af9b;*/
+    z-index: -2;
+    content: none;
+}
+
+@-webkit-keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+@-webkit-keyframes float2 {
+    0% {
+        line-height: 30px;
+        transform: translatey(0px);
+    }
+    55% {
+        transform: translatey(-20px);
+    }
+    60% {
+        line-height: 10px;
+    }
+    100% {
+        line-height: 30px;
+        transform: translatey(0px);
+    }
+}
+@keyframes float2 {
+    0% {
+        line-height: 30px;
+        transform: translatey(0px);
+    }
+    55% {
+        transform: translatey(-20px);
+    }
+    60% {
+        line-height: 10px;
+    }
+    100% {
+        line-height: 30px;
+        transform: translatey(0px);
+    }
+}

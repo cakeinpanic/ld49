@@ -1,9 +1,6 @@
 import { useContext } from 'react'
 import './Buttons.css'
-import { ScoreContext } from './score.context'
-
-const music = require('./music.mp3').default
-const root = document.documentElement
+import { ScoreContext } from './context/score.context'
 
 export function Buttons() {
   const { score, setScore } = useContext(ScoreContext)
