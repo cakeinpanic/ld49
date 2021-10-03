@@ -13,7 +13,21 @@ body {
 
 body, html{
     height: 100%;
-    background: var(--bg);
+}
+
+body {
+    background-color: var(--bg);
+
+}
+
+body:before {
+  content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image:  url(./noise.png);
+    opacity: .05;
 }
 
 code {
