@@ -10,17 +10,21 @@ enum eSound {
   happy = 'happy', normal = 'normal', sad = 'sad'
 }
 
+const VOLUME = .4
+
 export function Music({ gameStarted }: { gameStarted: boolean }) {
   const { score } = useContext(ScoreContext)
 
-  const [playNormal, { stop: stopNormal }] = useSound(normal, { loop: true, soundEnabled: true, volume: .4 })
-  const [playHappy, { stop: stopHappy }] = useSound(happy, { loop: true, soundEnabled: true, volume: .4 })
+  const [playNormal, { sound: normalSound }] = useSound(normal,
+    { loop: true, soundEnabled: true, volume: 0 })
+  const [playHappy, { sound: happySound }] = useSound(happy,
+    { loop: true, soundEnabled: true, volume: 0 })
   const [currentSound, setCurrentSound] = useState<eSound | null>(null)
 
   const prevSoundRef = useRef<eSound | null>()
 
   useEffect(() => {
-    if (true || !gameStarted) {
+    if (!gameStarted) {
       return
     }
 
@@ -44,32 +48,60 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   }, [score, gameStarted])
 
   useEffect(() => {
-    if (!currentSound || (prevSoundRef.current !== null && prevSoundRef.current === currentSound)) {
+    if (!normalSound) {
       return
     }
-    switch (prevSoundRef.current) {
-      case eSound.normal:
-        stopNormal()
-        break
-      case eSound.sad:
-        break
-      case eSound.happy:
-        stopHappy()
-        break
+    if (!normalSound.playing()) {
+      playNormal()
     }
-
-    switch (currentSound) {
-      case eSound.normal:
-        playNormal()
-        break
-      case eSound.sad:
-        break
-      case eSound.happy:
-        playHappy()
-        break
+    if (currentSound === eSound.normal) {
+      normalSound.fade(normalSound.volume(), VOLUME, 500)
+    } else {
+      normalSound.fade(normalSound.volume(), 0, 500)
     }
+  }, [currentSound, normalSound])
 
-  }, [currentSound, stopNormal, stopHappy, playHappy, playNormal])
+  useEffect(() => {
+    if (!happySound) {
+      return
+    }
+    if (!happySound.playing()) {
+      playHappy()
+    }
+    if (currentSound === eSound.happy) {
+      happySound.fade(happySound.volume(), VOLUME, 500)
+    } else {
+      happySound.fade(happySound.volume(), 0, 500)
+    }
+  }, [currentSound, happySound])
+
+  //useEffect(() => {
+  //  if (!currentSound || (prevSoundRef.current !== null && prevSoundRef.current === currentSound)) {
+  //    return
+  //  }
+  //  switch (prevSoundRef.current) {
+  //    case eSound.normal:
+  //      normalSound.fade(1, 0, 500)
+  //      break
+  //    case eSound.sad:
+  //      break
+  //    case eSound.happy:
+  //      stopHappy()
+  //      break
+  //  }
+  //
+  //  switch (currentSound) {
+  //    case eSound.normal:
+  //      playNormal()
+  //      break
+  //    case eSound.sad:
+  //      break
+  //    case eSound.happy:
+  //      playHappy()
+  //      break
+  //  }
+  //
+  //}, [currentSound, stopNormal, stopHappy, playHappy, playNormal])
 
   useEffect(() => {
     prevSoundRef.current = currentSound

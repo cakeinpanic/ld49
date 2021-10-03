@@ -7,8 +7,6 @@ import { Lamp } from './Lamp'
 import { Music } from './Music'
 import { Speech } from './Speech'
 
-const root = document.documentElement
-
 function App() {
 
   const [gameStarted, setGameStarted] = useState(false)
@@ -27,20 +25,21 @@ function App() {
 
   return (
     <>
-
       <SpeechContextProvider setGameOver={setGameOver}>
         <ScoreContext.Provider value={{ score, setScore }}>
           <Music gameStarted={gameStarted}/>
           <div className="Game">
             <Lamp/>
             {showControls && <Speech/>}
-            {!gameStarted && <button className="btn--stripe start-btn btn" onClick={() => {
-              setGameStarted(true)
-            }}>Play</button>}
+            {
+              !gameStarted &&
+              <button className="btn--stripe start-btn btn"
+                      onClick={() => {setGameStarted(true)}}>
+                Play
+              </button>
+            }
           </div>
           {showControls && <Buttons/>}
-
-
         </ScoreContext.Provider>
       </SpeechContextProvider>
     </>
