@@ -3,6 +3,7 @@ import useSound from 'use-sound'
 import './App.css'
 import { LoadedContext } from './context/loaded.context'
 import { ScoreContext } from './context/score.context'
+import { eLampState, getStateByScore } from './lampState.enum'
 
 const nightmare = require('./assets/ludum_dare_beta_-5.mp3').default
 const sad = require('./assets/ludum_dare_beta_-2.5.mp3').default
@@ -10,14 +11,10 @@ const neutral = require('./assets/ludum_dare_beta_0.mp3').default
 const ok = require('./assets/ludum_dare_beta_2.5.mp3').default
 const happy = require('./assets/ludum_dare_beta_5.mp3').default
 
-enum eSound {
-  happy = 'happy', ok = 'ok', neutral = 'neutral', sad = 'sad', nightmare = 'nightmare'
-}
-
 const VOLUME = .2
 const params = { loop: true, soundEnabled: true, volume: 0 }
 
-function doSound(currentSound: eSound | null, soundState: eSound, howlerObject: any) {
+function doSound(currentSound: eLampState | null, soundState: eLampState, howlerObject: any) {
   if (!howlerObject) {
     return
   }
@@ -41,7 +38,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   const [, { sound: okSound }] = useSound(ok, params)
   const [, { sound: happySound }] = useSound(happy, params)
 
-  const [currentSound, setCurrentSound] = useState<eSound | null>(null)
+  const [currentSound, setCurrentSound] = useState<eLampState | null>(null)
 
   useEffect(() => {
 
@@ -68,32 +65,18 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     }
 
     if (score > 2.5) {
-      setCurrentSound(eSound.happy)
-      return
+      setCurrentSound(getStateByScore(score))
     }
-
-    if (score > 0) {
-      setCurrentSound(eSound.ok)
-      return
-    }
-    if (score > -2.5) {
-      setCurrentSound(eSound.neutral)
-      return
-    }
-    if (score > -5) {
-      setCurrentSound(eSound.sad)
-    }
-    if (score) {
-      setCurrentSound(eSound.nightmare)
-    }
-  }, [score, gameStarted])
+  },
+    [score, gameStarted]
+  )
 
   useEffect(() => {
-    doSound(currentSound, eSound.neutral, neutralSound)
-    doSound(currentSound, eSound.nightmare, nightmareSound)
-    doSound(currentSound, eSound.sad, sadSound)
-    doSound(currentSound, eSound.ok, okSound)
-    doSound(currentSound, eSound.happy, happySound)
+    doSound(currentSound, eLampState.neutral, neutralSound)
+    doSound(currentSound, eLampState.nightmare, nightmareSound)
+    doSound(currentSound, eLampState.sad, sadSound)
+    doSound(currentSound, eLampState.ok, okSound)
+    doSound(currentSound, eLampState.happy, happySound)
   }, [currentSound, neutralSound, happySound, okSound, sadSound, nightmareSound])
 
   return (
