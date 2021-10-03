@@ -9,13 +9,13 @@
     justify-content: center;
 }
 
-.bg {
-    display: none;
+.bg.light {
     width: 100%;
     height: 100%;
-    background: radial-gradient(yellow 10%, transparent 70%);
-    opacity: var(--opacity);
+    background: radial-gradient(rgba(255,255,0,.1) 10%, rgba(255,255,0,0) 70%);
+    transition: filter 500ms linear, opacity 500ms ease-in-out;
     position: absolute;
+    opacity: var(--opacity);
 }
 
 .Game {
@@ -39,10 +39,7 @@
 }
 
 .light {
-    -webkit-filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%) opacity(var(--opacity-filter));
     filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%)  opacity(var(--opacity-filter));
-    -webkit-transition: -webkit-filter 500ms linear,  opacity 100ms linear;
     transition: filter 500ms linear, opacity 100ms linear;
-
     opacity: var(--opacity);
 }

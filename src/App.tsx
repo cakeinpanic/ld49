@@ -18,9 +18,9 @@ function changeColor(timeout: number) {
 }
 
 function blink() {
-  root.style.setProperty('--opacity-filter', '0%')
+  root.style.setProperty('--opacity', '0%')
   setTimeout(() => {
-    root.style.setProperty('--opacity-filter', '100%')
+    root.style.setProperty('--opacity', '100%')
     setTimeout(() => {
       blink()
     }, getRandomBetween(1000, 3000))
@@ -28,7 +28,7 @@ function blink() {
 }
 
 function App() {
-  //changeColor(0)
+  changeColor(0)
   blink()
   return (
     <div className="Game">
