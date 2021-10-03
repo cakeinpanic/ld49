@@ -1,25 +1,27 @@
 {
   "files": {
     "main.css": "/ld49/static/css/main.b8e779e1.chunk.css",
-    "main.js": "/ld49/static/js/main.9ff3af87.chunk.js",
-    "main.js.map": "/ld49/static/js/main.9ff3af87.chunk.js.map",
-    "runtime-main.js": "/ld49/static/js/runtime-main.cf7bd1e3.js",
-    "runtime-main.js.map": "/ld49/static/js/runtime-main.cf7bd1e3.js.map",
-    "static/js/2.9cdba308.chunk.js": "/ld49/static/js/2.9cdba308.chunk.js",
-    "static/js/2.9cdba308.chunk.js.map": "/ld49/static/js/2.9cdba308.chunk.js.map",
-    "static/js/3.50c282a0.chunk.js": "/ld49/static/js/3.50c282a0.chunk.js",
-    "static/js/3.50c282a0.chunk.js.map": "/ld49/static/js/3.50c282a0.chunk.js.map",
-    "static/js/4.9b2085ad.chunk.js": "/ld49/static/js/4.9b2085ad.chunk.js",
-    "static/js/4.9b2085ad.chunk.js.map": "/ld49/static/js/4.9b2085ad.chunk.js.map",
+    "main.js": "/ld49/static/js/main.a6286a42.chunk.js",
+    "main.js.map": "/ld49/static/js/main.a6286a42.chunk.js.map",
+    "runtime-main.js": "/ld49/static/js/runtime-main.19434649.js",
+    "runtime-main.js.map": "/ld49/static/js/runtime-main.19434649.js.map",
+    "static/js/2.fe821e89.chunk.js": "/ld49/static/js/2.fe821e89.chunk.js",
+    "static/js/2.fe821e89.chunk.js.map": "/ld49/static/js/2.fe821e89.chunk.js.map",
+    "static/js/3.e432632a.chunk.js": "/ld49/static/js/3.e432632a.chunk.js",
+    "static/js/3.e432632a.chunk.js.map": "/ld49/static/js/3.e432632a.chunk.js.map",
+    "static/js/4.9ef46e84.chunk.js": "/ld49/static/js/4.9ef46e84.chunk.js",
+    "static/js/4.9ef46e84.chunk.js.map": "/ld49/static/js/4.9ef46e84.chunk.js.map",
     "ludum_dare_beta_-5.mp3": "/ld49/1e08c02ffb091b99fb2facf24618c7f8.mp3",
+    "ludum_dare_beta_minus.mp3": "/ld49/3f2b4232237ff98fab9d50ea07bfdac5.mp3",
     "ludum_dare_beta_2.5.mp3": "/ld49/786120ca73fc6fc78ce66d044b9d37d2.mp3",
+    "ludum_dare_beta_plus.mp3": "/ld49/9c046dfd13edcd3af77f7ad935e74aeb.mp3",
     "ludum_dare_beta_5.mp3": "/ld49/de8730f7f67fb59b3387c7dab07f1b00.mp3",
     "ludum_dare_beta_0.mp3": "/ld49/e50d51ee58c6ec04b8cffdb182707bfa.mp3",
     "ludum_dare_beta_-2.5.mp3": "/ld49/ed14d2196c6a0a8bf20a14c8c076ddd8.mp3",
     "index.html": "/ld49/index.html",
     "static/css/main.b8e779e1.chunk.css.map": "/ld49/static/css/main.b8e779e1.chunk.css.map",
-    "static/js/2.9cdba308.chunk.js.LICENSE.txt": "/ld49/static/js/2.9cdba308.chunk.js.LICENSE.txt",
-    "static/js/3.50c282a0.chunk.js.LICENSE.txt": "/ld49/static/js/3.50c282a0.chunk.js.LICENSE.txt",
+    "static/js/2.fe821e89.chunk.js.LICENSE.txt": "/ld49/static/js/2.fe821e89.chunk.js.LICENSE.txt",
+    "static/js/3.e432632a.chunk.js.LICENSE.txt": "/ld49/static/js/3.e432632a.chunk.js.LICENSE.txt",
     "static/media/lamp.cf80ac2c.png": "/ld49/static/media/lamp.cf80ac2c.png",
     "static/media/light.59e00472.png": "/ld49/static/media/light.59e00472.png",
     "static/media/medium_light.d3ef943c.png": "/ld49/static/media/medium_light.d3ef943c.png",
@@ -28,9 +30,9 @@
     "static/media/sad_light.91eb97c4.png": "/ld49/static/media/sad_light.91eb97c4.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.cf7bd1e3.js",
-    "static/js/2.9cdba308.chunk.js",
+    "static/js/runtime-main.19434649.js",
+    "static/js/2.fe821e89.chunk.js",
     "static/css/main.b8e779e1.chunk.css",
-    "static/js/main.9ff3af87.chunk.js"
+    "static/js/main.a6286a42.chunk.js"
   ]
 }
