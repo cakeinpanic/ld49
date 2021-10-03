@@ -2,14 +2,14 @@ import './App.css'
 import lamp from './lamp.png'
 import light from './light.png'
 
+const root = document.documentElement
+
 function getRandomBetween(min: number, max: number) {
   return Math.random() * (max - min) + min
 }
 
 function changeColor(timeout: number) {
   setTimeout(() => {
-    const root = document.documentElement
-
     root.style.setProperty('--brightness', getRandomBetween(70, 120) + '%')
     root.style.setProperty('--hue', getRandomBetween(0, 180) + 'deg')
     root.style.setProperty('--saturate', getRandomBetween(70, 120) + '%')
@@ -17,8 +17,19 @@ function changeColor(timeout: number) {
   }, timeout)
 }
 
+function blink() {
+  root.style.setProperty('--opacity-filter', '0%')
+  setTimeout(() => {
+    root.style.setProperty('--opacity-filter', '100%')
+    setTimeout(() => {
+      blink()
+    }, getRandomBetween(1000, 3000))
+  }, getRandomBetween(100, 200))
+}
+
 function App() {
-  changeColor(0)
+  //changeColor(0)
+  blink()
   return (
     <div className="Game">
       <img className="img light" src={light}/>

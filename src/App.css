@@ -9,17 +9,13 @@
     justify-content: center;
 }
 
-#root::before {
-    content: '';
-    display: block;
+.bg {
+    display: none;
     width: 100%;
     height: 100%;
     background: radial-gradient(yellow 10%, transparent 70%);
-    opacity: .1;
-    -webkit-filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%);
+    opacity: var(--opacity);
     position: absolute;
-    -webkit-transition : -webkit-filter 500ms linear;
-    transition : filter 500ms linear;
 }
 
 .Game {
@@ -27,7 +23,6 @@
     height: 900px;
     position: relative;
 }
-
 
 
 .img {
@@ -39,11 +34,15 @@
     --brightness: 100%;
     --saturate: 100%;
     --hue: 0;
+    --opacity: 100%;
+    --opacity-filter: 100%;
 }
 
 .light {
-    -webkit-filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%);
-    filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%);
-    -webkit-transition : -webkit-filter 500ms linear;
-    transition : filter 500ms linear;
+    -webkit-filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%) opacity(var(--opacity-filter));
+    filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%)  opacity(var(--opacity-filter));
+    -webkit-transition: -webkit-filter 500ms linear,  opacity 100ms linear;
+    transition: filter 500ms linear, opacity 100ms linear;
+
+    opacity: var(--opacity);
 }
