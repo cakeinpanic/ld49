@@ -13,7 +13,7 @@ export function LoadedContextProvider({ children, setAllIsLoaded }: { children: 
 
   useEffect(() => {
     setTimeout(setAllIsLoaded(sound && images),1000)
-  }, [sound, images])
+  }, [sound, images, setAllIsLoaded])
 
   return (
     <LoadedContext.Provider value={
