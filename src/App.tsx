@@ -2,7 +2,7 @@ import useSound from 'use-sound'
 import './App.css'
 import lamp from './lamp.png'
 import light from './light.png'
-
+const music = require('./music.mp3').default
 const root = document.documentElement
 
 function getRandomBetween(min: number, max: number) {
@@ -32,8 +32,8 @@ function App() {
   changeColor(0)
   blink()
 
-  const [play] = useSound('./music.mp3',{loop: true})
-
+  const [play] = useSound(music,{loop: true, soundEnabled: true, volume: .4})
+debugger
   play()
 
   return (
