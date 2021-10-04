@@ -17,8 +17,8 @@
 
 .light {
     filter: brightness(var(--brightness)) saturate(var(--saturate)) hue-rotate(var(--hue)) grayscale(0%)  opacity(var(--opacity-filter));
-    transition: filter 500ms linear, opacity 2s linear, visibility 2s linear;
-    /*opacity: var(--opacity);*/
+    transition: filter 500ms linear, opacity .5s linear, visibility 2s linear;
+    opacity: var(--opacity);
     /*visibility: var(--visibility);*/
 }
 

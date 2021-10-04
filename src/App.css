@@ -15,16 +15,16 @@
     background: radial-gradient(rgba(255, 255, 0, .1) 10%, rgba(255, 255, 0, 0) 70%);
     transition: filter 500ms linear, opacity 500ms ease-in-out;
     position: absolute;
-    opacity: var(--opacity-filter);
+    opacity: var(--opacity);
 }
 
 
-.nightmare.bg {
+.nightmare .light.bg {
     left: 41%;
     top: 10%;
-    opacity: 1;
     width: 50%;
     height: 47%;
+    transition: opacity .1s ease-out;
 }
 
 .Game {

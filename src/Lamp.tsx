@@ -63,10 +63,10 @@ export function Lamp() {
 
     clearTimeout(blinkTimeoutRef.current)
     if (lampState === eLampState.nightmare || lampState === eLampState.sad || lampState === eLampState.neutral) {
-      root?.style.setProperty('--opacity-filter', '0%')
+      root?.style.setProperty('--opacity', '0%')
     }
     setTimeout(() => {
-      root?.style.setProperty('--opacity-filter', '100%')
+      root?.style.setProperty('--opacity', '100%')
       blinkTimeoutRef.current = setTimeout(() => {
         blink()
       }, getRandomBetween(nextBlink))
