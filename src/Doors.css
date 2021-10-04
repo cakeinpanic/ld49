@@ -1,13 +1,28 @@
-body {
+:root {
+    --anim: paused
+}
+
+.loading-btn {
+    top: 33px;
+    left: 25px;
+    opacity: 1;
+    transition: all 1s;
+}
+
+.doors-container {
     display: flex;
     width: 100%;
     height: 100vh;
-    background: #222;
+    /*background: #222;*/
     perspective: 100vw;
     overflow: hidden;
+    position: absolute;
     animation: squiggly-anim 0.4s infinite;
     -webkit-animation: squiggly-anim 0.2s infinite;
 }
+
+
+
 @-webkit-keyframes squiggly-anim {
     0% {
         filter: url("#squiggly-0");
@@ -42,42 +57,27 @@ body {
         filter: url("#squiggly-4");
     }
 }
+
 body .door {
     position: absolute;
-    width: 100px;
-    height: 200px;
-    left: calc(50% - 50px);
-    top: calc(50% - 100px);
+    width: 173px;
+    height: 301px;
+    left: calc(50% - 76px);
+    top: calc(50% - 164px);
     box-shadow: inset 0 -5px 0 0 #222, inset 0 0 0 1px #fff, 0 5px 0 0 #222, 0 0 0 100vw #222;
     perspective: 500px;
     transform-style: preserve-3d;
-    -webkit-animation: scaling 5s linear infinite;
-    animation: scaling 5s linear infinite;
+    animation: scaling 5s linear var(--anim);
     transform: translateZ(-1px);
 }
-body .door:nth-of-type(3) {
-    -webkit-animation-delay: 1.25s;
-    animation-delay: 1.25s;
-}
-body .door:nth-of-type(3) .face {
-    -webkit-animation-delay: 1.25s;
-    animation-delay: 1.25s;
-}
-body .door:nth-of-type(2) {
-    -webkit-animation-delay: 2.5s;
-    animation-delay: 2.5s;
-}
-body .door:nth-of-type(2) .face {
-    -webkit-animation-delay: 2.5s;
-    animation-delay: 2.5s;
-}
+
 body .door:nth-of-type(1) {
-    -webkit-animation-delay: 3.75s;
-    animation-delay: 3.75s;
+    /*-webkit-animation-delay: 3.75s;*/
+    /*animation-delay: 3.75s;*/
 }
 body .door:nth-of-type(1) .face {
-    -webkit-animation-delay: 3.75s;
-    animation-delay: 3.75s;
+    /*-webkit-animation-delay: 3.75s;*/
+    /*animation-delay: 3.75s;*/
 }
 @-webkit-keyframes scaling {
     0% {
@@ -253,8 +253,8 @@ body .door .face {
     box-shadow: inset 0 0 0 1px #fff;
     background: #222;
     transform-origin: left;
-    -webkit-animation: swing 5s ease-in-out infinite;
-    animation: swing 5s ease-in-out infinite;
+    -webkit-animation: swing 5s ease-in-out var(--anim);
+    animation: swing 5s ease-in-out var(--anim);
 }
 body .door .face:before {
     content: "";

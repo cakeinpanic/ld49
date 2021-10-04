@@ -38,7 +38,6 @@
 }
 
 .speech:after {
-
     transform: translatey(0px);
     -webkit-animation: float2 5s ease-in-out infinite;
     animation: float2 5s ease-in-out infinite;

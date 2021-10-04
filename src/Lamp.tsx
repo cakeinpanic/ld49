@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import lamp from './assets/lamp.png'
 import light from './assets/light.png'
 import mediumLight from './assets/medium_light.png'
@@ -12,8 +12,9 @@ import { useLightBlink } from './hooks/lightBlink.hook'
 import { useLightTransitions } from './hooks/lightTransitions.hook'
 import './Lamp.css'
 import { eLampState } from './lampState.enum'
+import { Speech } from './Speech'
 
-export function Lamp() {
+export function Lamp({showControls}: {showControls:boolean}) {
   const { lampState } = useContext(ScoreContext)
 
   useLightTransitions(lampState)
@@ -67,7 +68,9 @@ export function Lamp() {
     <div id={LAMP_ID}>
       {[eLampState.nightmare, eLampState.sad, eLampState.neutral, eLampState.ok, eLampState.happy].map(
         state => getLampImage(state))}
+      {showControls && <Speech/>}
     </div>
+
   )
 }
 

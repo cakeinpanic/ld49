@@ -1,5 +1,11 @@
 
-
+#lamp{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 71px;
+    left: 25%;
+}
 .img {
     width: 100%;
     position: absolute;
@@ -27,6 +33,5 @@
 }
 .lamp-container {
     transition: all 1s ease-in-out;
-    position: absolute;
-    width: 100%;
+
 }

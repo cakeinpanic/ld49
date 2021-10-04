@@ -1,29 +1,25 @@
+import React from 'react'
 import './Doors.css'
 
-export const Doors = () => {
+export const Doors = ({ onStart, allIsLoaded }: { allIsLoaded: boolean,onStart: Function }) => {
+  const start = () => {
+    const root = document.body
+    root?.style.setProperty('--anim', 'infinite')
+    onStart()
+  }
+
   return (
-    <>
-      <div className='door'>
+    <div className="doors-container">
+      <div className='door' onClick={start}>
         <div className='face'>
+           <button style={{opacity: allIsLoaded ? '100%':'0%'}}className="loading-btn btn--stripe btn">
+            Start
+          </button>
+
           <div className='right'></div>
         </div>
       </div>
-      <div className='door'>
-        <div className='face'>
-          <div className='right'></div>
-        </div>
-      </div>
-      <div className='door'>
-        <div className='face'>
-          <div className='right'></div>
-        </div>
-      </div>
-      <div className='door'>
-        <div className='face'>
-          <div className='right'></div>
-        </div>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{display:'none'}}>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'none' }}>
         <defs>
           <filter id="squiggly-0">
             <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="0"/>
@@ -47,6 +43,6 @@ export const Doors = () => {
           </filter>
         </defs>
       </svg>
-    </>
+    </div>
   )
 }

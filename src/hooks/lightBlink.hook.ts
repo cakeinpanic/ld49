@@ -17,7 +17,7 @@ export const useLightBlink = (lampState: eLampState) => {
     const root = document.body
     clearTimeout(blinkTimeoutRef.current)
     root?.style.setProperty('--opacity', scenario[nextStep].opacity + '%')
-    console.log('blink', scenario[nextStep])
+
     blinkTimeoutRef.current = setTimeout(() => {
       setNextStep((nextStep + 1) % scenario.length)
     }, scenario[nextStep].time)
