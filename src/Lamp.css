@@ -22,6 +22,9 @@
     /*visibility: var(--visibility);*/
 }
 
+.nightmare .light {
+    transition: filter 500ms linear, opacity 0s linear, visibility 2s linear;
+}
 .lamp-container {
     transition: all 1s ease-in-out;
     position: absolute;

@@ -13,8 +13,15 @@ export function Buttons() {
 
   }
   return (
+    <>
+      <div className="debug">
+        <div className="btn btn--stripe" onClick={() => clicked(-1)}>minus</div>
+        <div className="btn btn--stripe" onClick={() => clicked(1)}>plus</div>
+
+        <div className="score">Score: {score}</div>
+      </div>
     <div className="Buttons">
-      <div className="score">Score: {score}</div>
+
       {
         getAnswers()
           .map(
@@ -22,6 +29,7 @@ export function Buttons() {
                       onClick={() => clicked(a.score)}>{a.text}</div>)
       }
     </div>
+      </>
   )
 }
 

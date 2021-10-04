@@ -8,6 +8,7 @@ import { LoadedContext } from './context/loaded.context'
 import { ScoreContext } from './context/score.context'
 import './Lamp.css'
 import { eLampState } from './lampState.enum'
+import { NIGTHMARE_BLINK_SCENARIO } from './lightScenarios'
 
 const LAMP_ID = 'lamp'
 
