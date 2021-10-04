@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Doors.css'
 
 export const Doors = ({ onStart, allIsLoaded }: { allIsLoaded: boolean,onStart: Function }) => {
+const [isStarted, setIsStarted] =useState(false)
   const start = () => {
     const root = document.body
     root?.style.setProperty('--anim', 'infinite')
     onStart()
+    setIsStarted(true)
   }
 
-  return (
+  return (<>
     <div className="doors-container">
       <div className='door' onClick={start}>
         <div className='face'>
@@ -43,6 +45,11 @@ export const Doors = ({ onStart, allIsLoaded }: { allIsLoaded: boolean,onStart: 
           </filter>
         </defs>
       </svg>
+
     </div>
+      <button className="welcome-btn  btn--stripe btn"  style={{opacity: isStarted ? '0':'100%', bottom: isStarted ? '50px': '100px'}}>
+       Hi, this is a game about unstable emotions and things that surround us.<br/><br/>  It was designed to be played with sound turned on, moreover sound makes the gamplay whole. <br/> Please turn it on ❤️
+      </button>
+    </>
   )
 }
