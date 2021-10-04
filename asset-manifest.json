@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ld49/static/css/main.b8e779e1.chunk.css",
-    "main.js": "/ld49/static/js/main.2c52c77e.chunk.js",
-    "main.js.map": "/ld49/static/js/main.2c52c77e.chunk.js.map",
+    "main.css": "/ld49/static/css/main.75dbed47.chunk.css",
+    "main.js": "/ld49/static/js/main.a49cc9ec.chunk.js",
+    "main.js.map": "/ld49/static/js/main.a49cc9ec.chunk.js.map",
     "runtime-main.js": "/ld49/static/js/runtime-main.19434649.js",
     "runtime-main.js.map": "/ld49/static/js/runtime-main.19434649.js.map",
     "static/js/2.fe821e89.chunk.js": "/ld49/static/js/2.fe821e89.chunk.js",
@@ -19,7 +19,7 @@
     "ludum_dare_beta_0.mp3": "/ld49/e50d51ee58c6ec04b8cffdb182707bfa.mp3",
     "ludum_dare_beta_-2.5.mp3": "/ld49/ed14d2196c6a0a8bf20a14c8c076ddd8.mp3",
     "index.html": "/ld49/index.html",
-    "static/css/main.b8e779e1.chunk.css.map": "/ld49/static/css/main.b8e779e1.chunk.css.map",
+    "static/css/main.75dbed47.chunk.css.map": "/ld49/static/css/main.75dbed47.chunk.css.map",
     "static/js/2.fe821e89.chunk.js.LICENSE.txt": "/ld49/static/js/2.fe821e89.chunk.js.LICENSE.txt",
     "static/js/3.e432632a.chunk.js.LICENSE.txt": "/ld49/static/js/3.e432632a.chunk.js.LICENSE.txt",
     "static/media/lamp.cf80ac2c.png": "/ld49/static/media/lamp.cf80ac2c.png",
@@ -32,7 +32,7 @@
   "entrypoints": [
     "static/js/runtime-main.19434649.js",
     "static/js/2.fe821e89.chunk.js",
-    "static/css/main.b8e779e1.chunk.css",
-    "static/js/main.2c52c77e.chunk.js"
+    "static/css/main.75dbed47.chunk.css",
+    "static/js/main.a49cc9ec.chunk.js"
   ]
 }
