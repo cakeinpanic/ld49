@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import useSound from 'use-sound'
 import './App.css'
+import mute from './assets/mute.png'
 import { LoadedContext } from './context/loaded.context'
 import { ScoreContext } from './context/score.context'
 import { eLampState } from './lampState.enum'
@@ -18,11 +19,11 @@ const VOLUME = .3
 const FADE_DURATION = 800
 const params = { loop: true, soundEnabled: true, volume: 0 }
 
-function doSound(currentSound: eLampState | null, soundState: eLampState, howlerObject: any) {
+function doSound(currentSound: eLampState | null, soundState: eLampState, howlerObject: any, isAllMuted: boolean) {
   if (!howlerObject) {
     return
   }
-  if (currentSound === soundState) {
+  if (currentSound === soundState && !isAllMuted) {
     howlerObject.fade(howlerObject.volume(), VOLUME, FADE_DURATION)
   } else {
     howlerObject.fade(howlerObject.volume(), 0, FADE_DURATION)
@@ -32,7 +33,7 @@ function doSound(currentSound: eLampState | null, soundState: eLampState, howler
 export function Music({ gameStarted }: { gameStarted: boolean }) {
   const { score, lampState } = useContext(ScoreContext)
   const { soundLoaded } = useContext(LoadedContext)
-
+  const [isAllMuted, setIsAllMuted] = useState(false)
   const [, { sound: nightmareSound }] = useSound(nightmare, params)
   const [, { sound: sadSound }] = useSound(sad, params)
   const [, { sound: neutralSound }] = useSound(neutral, params)
@@ -92,16 +93,25 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   }, [score, minusJingle, plusJingle])
 
   useEffect(() => {
-    doSound(currentSound, eLampState.neutral, neutralSound)
-    doSound(currentSound, eLampState.nightmare, nightmareSound)
-    doSound(currentSound, eLampState.sad, sadSound)
-    doSound(currentSound, eLampState.ok, okSound)
-    doSound(currentSound, eLampState.happy, happySound)
-  }, [currentSound, neutralSound, happySound, okSound, sadSound, nightmareSound])
+    doSound(currentSound, eLampState.neutral, neutralSound, isAllMuted)
+    doSound(currentSound, eLampState.nightmare, nightmareSound, isAllMuted)
+    doSound(currentSound, eLampState.sad, sadSound, isAllMuted)
+    doSound(currentSound, eLampState.ok, okSound, isAllMuted)
+    doSound(currentSound, eLampState.happy, happySound, isAllMuted)
+  }, [isAllMuted, currentSound, neutralSound, happySound, okSound, sadSound, nightmareSound])
+
+  const muteAll = () => {
+    setIsAllMuted(!isAllMuted)
+    localStorage.setItem('mute', ''+ !isAllMuted )
+  }
+
+  useEffect(() => {
+    setIsAllMuted(localStorage.getItem('mute') === 'true')
+  }, [])
 
   return (
     <>
-
+      <img className={'mute ' + isAllMuted} src={mute} onClick={muteAll}/>
     </>
   )
 }
