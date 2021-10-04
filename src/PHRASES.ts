@@ -13,8 +13,8 @@ export const FIRST_PHRASE: IState = {
       'score': 0
     },
     {
-      'text': 'I\'m not interested',
-      'score': -1
+      'text': 'Just give me that light already',
+      'score': -1.5
     },
     {
       'text': 'You look sad, Greg, wanna talk?',
@@ -102,13 +102,13 @@ export const REST_PHRASES: IState[] = [
         'score': -.5
       },
       {
-        'text': 'Your are helping people to see things at night or just to feel cozy, you are good lamp',
+        'text': 'Your are helping people to see things at night or just to feel cozy, you are a good lamp',
         'score': 1
       }
     ]
   },
   {
-    'question': 'I don\'t have any friends, why do other lamps avoid me?',
+    'question': 'I don\'t have any friends. Why do other lamps avoid me?',
     used: false,
     'answers': [
       {
@@ -124,7 +124,7 @@ export const REST_PHRASES: IState[] = [
         'score': -1
       },
       {
-        'text': 'Tell me more about other lamps. Why do think so?',
+        'text': 'Tell me more about other lamps. Why do you think so?',
         'score': .5
       }
     ]
@@ -174,7 +174,29 @@ export const REST_PHRASES: IState[] = [
     ]
   },
   {
-    'question': 'Smart lamps?! Why do they buy them? Am I stupid to you?',
+    'question': 'I think I\'m burning out',
+    used: false,
+    'answers': [
+      {
+        text: 'Oh lamps! I think I\'am too', //?? TODO
+        'score': 0
+      },
+      {
+        'text': 'You are just being lazy',
+        'score': -2
+      },
+      {
+        'text': '"Burning out" it\'s a myth',
+        'score': -1
+      },
+      {
+        'text': 'It must be tense. How long have you been feeling this?',
+        'score': 2
+      }
+    ]
+  },
+  {
+    'question': 'Smart lamps?! Why do they buy them? Do you think I\'am stupid?',
     used: false,
     'answers': [
       {
@@ -192,6 +214,28 @@ export const REST_PHRASES: IState[] = [
       {
         'text': 'You just different, there are not better than you',
         'score': 0.5
+      }
+    ]
+  },
+  {
+    'question': 'I have been feeling irritable lately',
+    used: false,
+    'answers': [
+      {
+        text: '... Oh sorry, What? I was checking Facebook.',
+        'score': -2
+      },
+      {
+        'text': 'You should find a girlfiend. She will chill you',
+        'score': -2
+      },
+      {
+        'text': 'Tell me what irrite you most',
+        'score': 1
+      },
+      {
+        'text': 'It\'s all about weather',
+        'score': -1
       }
     ]
   },
