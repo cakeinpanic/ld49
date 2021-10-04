@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { eLampState } from '../lampState.enum'
 
-function setBgColor(lampState: eLampState) {
+function setBgColor(lampState: eLampState, isGameOver: boolean) {
   const root = document.body
   let start = 10
   let end = 80
@@ -9,6 +9,12 @@ function setBgColor(lampState: eLampState) {
 
   switch (lampState) {
     case eLampState.happy:
+      if(isGameOver){
+        start = 80
+        end = 100
+        opacity = 0
+        break
+      }
       start = 56
       end = 80
       opacity = 50
@@ -29,6 +35,12 @@ function setBgColor(lampState: eLampState) {
       opacity = 90
       break
     case eLampState.nightmare:
+      if(isGameOver){
+        start = 0
+        end = 100
+        opacity = 100
+        break
+      }
       start = 10
       end = 80
       opacity = 100
@@ -40,8 +52,8 @@ function setBgColor(lampState: eLampState) {
   root?.style.setProperty('--darkness-opacity', opacity + '%')
 }
 
-export const useBgColor = (lampState: eLampState) => {
+export const useBgColor = (lampState: eLampState,isGameOver: boolean) => {
   useEffect(() => {
-    setBgColor(lampState)
-  }, [lampState])
+    setBgColor(lampState,isGameOver)
+  }, [lampState, isGameOver])
 }

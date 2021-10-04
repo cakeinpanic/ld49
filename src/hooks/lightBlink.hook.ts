@@ -7,7 +7,7 @@ import {
   SAD_BLINK_SCENARIO
 } from './lightScenarios'
 
-export const useLightBlink = (lampState: eLampState) => {
+export const useLightBlink = (lampState: eLampState, isGameOver: boolean) => {
 
   const blinkTimeoutRef = useRef<any>()
   const [scenario, setScenario] = useState(SAD_BLINK_SCENARIO)
@@ -16,12 +16,20 @@ export const useLightBlink = (lampState: eLampState) => {
   const blink = useCallback(() => {
     const root = document.body
     clearTimeout(blinkTimeoutRef.current)
+    if (isGameOver) {
+      if (lampState === eLampState.nightmare) {
+        root?.style.setProperty('--opacity', 0 + '%')
+      } else {
+        root?.style.setProperty('--opacity', 100 + '%')
+      }
+      return
+    }
     root?.style.setProperty('--opacity', scenario[nextStep].opacity + '%')
 
     blinkTimeoutRef.current = setTimeout(() => {
       setNextStep((nextStep + 1) % scenario.length)
     }, scenario[nextStep].time)
-  }, [ scenario, nextStep])
+  }, [scenario, nextStep, isGameOver, lampState])
 
   useEffect(() => {
     let scenario: any
@@ -46,7 +54,7 @@ export const useLightBlink = (lampState: eLampState) => {
     } else {
       setNextStep(0)
     }
-  }, [lampState, nextStep])
+  }, [lampState, nextStep, isGameOver])
 
   useEffect(() => {
     blink()

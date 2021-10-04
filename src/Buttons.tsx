@@ -10,8 +10,8 @@ export function Buttons() {
   const clicked = (answerScore: number) => {
     setScore(score + answerScore)
     setNextPhrase()
-
   }
+
   return (
     <>
       {/*<div className="debug">*/}

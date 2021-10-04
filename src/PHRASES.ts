@@ -26,6 +26,29 @@ export const FIRST_PHRASE: IState = {
     }
   ]
 }
+export const WIN_PHRASE: IState = {
+  'question': 'Thank you, really, thank you! I was so unstable, I thought I\'m gonna die from loneliness. But now I believe in my future',
+  used: false,
+  'answers': [
+    {
+      'text': 'Bye, Greg! It was so nice meeting you. I\'m glad I helped!',
+      'score': 0
+    },
+
+  ]
+}
+
+export const LOOSE_PHRASE: IState = {
+  'question': 'I was unstable in the beginning, but now I am just dead, just dead, I can not move, I can not light. I will stay here on the floor forever',
+  used: false,
+  'answers': [
+    {
+      'text': 'Oh no, did I really make you so desperate by only few words I said? Are words SO powerful? ',
+      'score': 0
+    },
+
+  ]
+}
 
 
 export const REST_PHRASES: IState[] = [

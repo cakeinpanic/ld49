@@ -18,15 +18,16 @@ function App() {
   const [lampState, setLampState] = useState(getStateByScore(score))
 
   const [allIsLoaded, setAllIsLoaded] = useState(false)
-
+  const [isGameOver, setIsGameOver] = useState(false)
 
   useEffect(() => {
     setLampState(getStateByScore(score))
   }, [score])
 
   const setGameOver = () => {
-
+    setIsGameOver(true)
   }
+
   const startTheGame = () => {
     setTimeout(() => {
       setGameStarted(true)
@@ -41,20 +42,20 @@ function App() {
   return (
     <>
       <LoadedContextProvider setAllIsLoaded={setAllIsLoaded}>
-        <SpeechContextProvider setGameOver={setGameOver}>
-          <ScoreContext.Provider value={{ score, setScore, lampState }}>
+        <ScoreContext.Provider value={{ isGameOver, score, setScore, lampState }}>
+          <SpeechContextProvider isGameOver={isGameOver} setGameOver={setGameOver}>
 
-            <Music gameStarted={gameStarted}/>
-            <div className={'Game ' + lampState + (gameStarted ? ' started': '')} >
+            <div className={'Game ' + lampState + (gameStarted ? ' started' : '')}>
               <div className='dark bg '/>
               <div className='light bg '/>
               <Lamp showControls={showControls}/>
             </div>
-
             {showControls && <Buttons/>}
             {showDoor && <Doors allIsLoaded={allIsLoaded} onStart={startTheGame}/>}
-          </ScoreContext.Provider>
-        </SpeechContextProvider>
+            <Music gameStarted={gameStarted}/>
+          </SpeechContextProvider>
+        </ScoreContext.Provider>
+
       </LoadedContextProvider>
     </>
   )

@@ -18,7 +18,7 @@ function setProps(lampState: eLampState) {
   }
 }
 
-export const useLightTransitions = (lampState: eLampState) => {
+export const useLightTransitions = (lampState: eLampState, isGameOver: boolean) => {
   const timeoutRef = useRef<any>()
 
   const changeColor = useCallback(() => {

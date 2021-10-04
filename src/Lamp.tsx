@@ -15,11 +15,11 @@ import { eLampState } from './lampState.enum'
 import { Speech } from './Speech'
 
 export function Lamp({showControls}: {showControls:boolean}) {
-  const { lampState } = useContext(ScoreContext)
+  const { lampState,isGameOver } = useContext(ScoreContext)
 
-  useLightTransitions(lampState)
-  useLightBlink(lampState)
-  useBgColor(lampState)
+  useLightTransitions(lampState, isGameOver)
+  useLightBlink(lampState, isGameOver)
+  useBgColor(lampState, isGameOver)
 
   const { imagesAreLoaded } = useContext(LoadedContext)
   const [loadedCount, setLoadedCount] = useState(0)
@@ -41,7 +41,6 @@ export function Lamp({showControls}: {showControls:boolean}) {
     opacity = (lampState === lampStateToRender) ? 1 : 0
     switch (lampStateToRender) {
       case eLampState.nightmare:
-
         lampImg = sadLamp
         lightImg = sadLight
         break
