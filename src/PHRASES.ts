@@ -31,7 +31,7 @@ export const WIN_PHRASE: IState = {
   used: false,
   'answers': [
     {
-      'text': 'Bye, Greg! It was so nice meeting you. I\'m glad I helped!',
+      'text': 'Bye, Greg! It was so nice meeting you. I\'m glad I helped! Let\'s chat again, I enjoyed it',
       'score': 0
     },
 
@@ -44,6 +44,17 @@ export const LOOSE_PHRASE: IState = {
   'answers': [
     {
       'text': 'Oh no, did I really make you so desperate by only few words I said?\nAre words SO powerful?\nI want to try again',
+      'score': 0
+    },
+
+  ]
+}
+export const BORING_PHRASE: IState = {
+  'question': 'I was so unstable in the beginning, and hoped that you could help me, but looks like I\'m just a useless lamp and there is no chance for me to feel needed',
+  used: false,
+  'answers': [
+    {
+      'text': 'Greg, you are mistaken, you are needed and loved, I want to chat with you more to prove it',
       'score': 0
     },
 

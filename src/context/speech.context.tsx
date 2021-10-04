@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { eLampState } from '../lampState.enum'
-import { FIRST_PHRASE, IAnswer, IState, LOOSE_PHRASE, REST_PHRASES, WIN_PHRASE } from '../PHRASES'
+import { BORING_PHRASE, FIRST_PHRASE, IAnswer, IState, LOOSE_PHRASE, REST_PHRASES, WIN_PHRASE } from '../PHRASES'
 import { ScoreContext } from './score.context'
 
 export interface ISpeechContext {
@@ -49,16 +49,25 @@ export function SpeechContextProvider({
       {
         currentPhraseIndex, setNextPhrase,
         getQuestion: () => {
+          let phrase: IState
           if (isGameOver) {
-            return lampState === eLampState.nightmare ? LOOSE_PHRASE.question : WIN_PHRASE.question
+            phrase = lampState === eLampState.nightmare ? LOOSE_PHRASE :
+              (lampState === eLampState.happy ? WIN_PHRASE : BORING_PHRASE)
+          } else {
+            phrase = PHRASES[currentPhraseIndex]
           }
-          return PHRASES[currentPhraseIndex]?.question || 'Game over'
+
+          return phrase?.question
         },
         getAnswers: () => {
+          let phrase: IState
           if (isGameOver) {
-            return lampState === eLampState.nightmare ? LOOSE_PHRASE.answers : WIN_PHRASE.answers
+            phrase = lampState === eLampState.nightmare ? LOOSE_PHRASE :
+              (lampState === eLampState.happy ? WIN_PHRASE : BORING_PHRASE)
+          } else {
+            phrase = PHRASES[currentPhraseIndex]
           }
-          return PHRASES[currentPhraseIndex]?.answers || []
+          return phrase?.answers || []
         }
       }
     }>
