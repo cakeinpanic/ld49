@@ -65,8 +65,12 @@
     transition: all 2s ease-out;
 }
 
+:root {
+    --fix: 100%;
+}
+
 .Game.started #lamp {
-    opacity: 100%;
+    opacity: var(--fix);
     transform: scale(1);
     top: 71px;
 }
