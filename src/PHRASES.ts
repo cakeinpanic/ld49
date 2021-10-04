@@ -239,4 +239,26 @@ export const REST_PHRASES: IState[] = [
       }
     ]
   },
+  {
+    'question': 'I feel like I don\'t do enough',
+    used: false,
+    'answers': [
+      {
+        text: 'I think that we all do the best we can',
+        'score': 1
+      },
+      {
+        'text': 'What blocks you?',
+        'score': -1
+      },
+      {
+        'text': 'Just work harder',
+        'score': -2
+      },
+      {
+        'text': '...',
+        'score': 0
+      }
+    ]
+  },
 ]
