@@ -20,10 +20,13 @@ body, html {
     font-family: "Baloo 2", sans-serif;
 }
 
-body {
-    background-color: var(--bg);
-    transition: background-color 1s ease-in;
+html {
+    background-color: black;
+}
 
+body {
+    background-color: #3d3d46;
+    transition: background-color 1s ease-in;
 }
 
 body:before {
@@ -35,9 +38,4 @@ body:before {
     background-image: url(assets/noise.png);
     background-repeat: repeat;
     opacity: .05;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }

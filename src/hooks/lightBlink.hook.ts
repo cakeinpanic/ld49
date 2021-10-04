@@ -21,7 +21,7 @@ export const useLightBlink = (lampState: eLampState) => {
     blinkTimeoutRef.current = setTimeout(() => {
       setNextStep((nextStep + 1) % scenario.length)
     }, scenario[nextStep].time)
-  }, [lampState, scenario, nextStep])
+  }, [ scenario, nextStep])
 
   useEffect(() => {
     let scenario: any
@@ -46,7 +46,7 @@ export const useLightBlink = (lampState: eLampState) => {
     } else {
       setNextStep(0)
     }
-  }, [lampState])
+  }, [lampState, nextStep])
 
   useEffect(() => {
     blink()
