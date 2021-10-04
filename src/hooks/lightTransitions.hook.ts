@@ -6,8 +6,8 @@ function setProps(lampState: eLampState) {
   const root = document.getElementById('root')
 
   if (lampState === eLampState.ok || lampState === eLampState.happy || lampState === eLampState.neutral) {
-    const hue = lampState === eLampState.ok ? getRandomBetween([0, 180]) : getRandomBetween([70, 150])
-    const brightness = lampState === eLampState.happy ? getRandomBetween([70, 120]) : getRandomBetween([60, 90])
+    const hue = lampState === eLampState.happy ?  getRandomBetween([0, 360]):getRandomBetween([90, 150])
+    const brightness = lampState === eLampState.happy ? getRandomBetween([90, 120]) : getRandomBetween([60, 90])
 
     root?.style.setProperty('--brightness', brightness + '%')
     root?.style.setProperty('--hue', hue + 'deg')
@@ -29,6 +29,10 @@ export const useLightTransitions = (lampState: eLampState, isGameOver: boolean) 
 
     switch (lampState) {
       case eLampState.happy:
+        if(isGameOver){
+          nextChange = [500, 700]
+          break
+        }
         nextChange = [500, 1000]
         break
       case eLampState.ok:
@@ -40,7 +44,7 @@ export const useLightTransitions = (lampState: eLampState, isGameOver: boolean) 
     }
 
     timeoutRef.current = setTimeout(changeColor, getRandomBetween(nextChange))
-  }, [lampState])
+  }, [lampState, isGameOver])
 
   useEffect(() => {
     changeColor()
