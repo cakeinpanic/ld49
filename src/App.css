@@ -111,6 +111,20 @@
         background: rgba(#000, .8) !important;
         bottom: 5px !important
     }
+    .Buttons  .btn--stripe{
+        font-size: 11px;
+    }
+    .Buttons,.Buttons-wrapper{
+        height: 150px!important;
+    }
+    .gameover .btn {
+      max-width: 90%!important;
+        width: 90%!important;
+     }
+    .gameover.Buttons {
+      width: 100%!important;
+     }
+
 
     .doors-container .door {
         width: 164px;
