@@ -113,8 +113,52 @@ export const REST_PHRASES: IState[] = [
         'score': -1
       },
       {
-        'text': 'Tell me more about other lamps, why do think so?',
+        'text': 'Tell me more about other lamps. Why do think so?',
         'score': .5
+      }
+    ]
+  },
+  {
+    'question': 'Sometimes I think about changing my job. Is it real for lamp like me to become a game dev?',
+    used: false,
+    'answers': [
+      {
+        text: 'Nah, you should be good at math',
+        'score': -2
+      },
+      {
+        'text': 'Hug',
+        'score': -0.5
+      },
+      {
+        'text': 'I heard that they have a nice salary',
+        'score': -1
+      },
+      {
+        'text': 'You should give it a try. I belive in you.',
+        'score': 1
+      }
+    ]
+  },
+  {
+    'question': 'They keep forgeting to turn me off, I can burn out!',
+    used: false,
+    'answers': [
+      {
+        text: 'I don\'t know. You should ask your them, not me',
+        'score': -1
+      },
+      {
+        'text': 'I thought you like your work',
+        'score': -2
+      },
+      {
+        'text': '...',
+        'score': 0
+      },
+      {
+        'text': 'You should not wait for their attention. You are just a lamp',
+        'score': -2
       }
     ]
   },
