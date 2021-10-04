@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Doors } from './Doors';
 
 ReactDOM.render(
   <React.StrictMode>
     <link href="https://fonts.googleapis.com/css?family=Baloo+2:400,800" rel="stylesheet"/>
-    <App />
+    <Doors/>
+    {/*<App />*/}
   </React.StrictMode>,
   document.getElementById('root')
 );
