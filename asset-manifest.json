@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ld49/static/css/main.ad4dff86.chunk.css",
-    "main.js": "/ld49/static/js/main.b6d8c662.chunk.js",
-    "main.js.map": "/ld49/static/js/main.b6d8c662.chunk.js.map",
+    "main.js": "/ld49/static/js/main.eedd7d6c.chunk.js",
+    "main.js.map": "/ld49/static/js/main.eedd7d6c.chunk.js.map",
     "runtime-main.js": "/ld49/static/js/runtime-main.42a72dfb.js",
     "runtime-main.js.map": "/ld49/static/js/runtime-main.42a72dfb.js.map",
     "static/js/2.0a304a87.chunk.js": "/ld49/static/js/2.0a304a87.chunk.js",
@@ -22,6 +22,7 @@
     "static/css/main.ad4dff86.chunk.css.map": "/ld49/static/css/main.ad4dff86.chunk.css.map",
     "static/js/2.0a304a87.chunk.js.LICENSE.txt": "/ld49/static/js/2.0a304a87.chunk.js.LICENSE.txt",
     "static/js/3.187bcd1c.chunk.js.LICENSE.txt": "/ld49/static/js/3.187bcd1c.chunk.js.LICENSE.txt",
+    "static/media/dead_lamp.4ef1c2fd.png": "/ld49/static/media/dead_lamp.4ef1c2fd.png",
     "static/media/lamp.cf80ac2c.png": "/ld49/static/media/lamp.cf80ac2c.png",
     "static/media/light.59e00472.png": "/ld49/static/media/light.59e00472.png",
     "static/media/medium_light.d3ef943c.png": "/ld49/static/media/medium_light.d3ef943c.png",
@@ -33,6 +34,6 @@
     "static/js/runtime-main.42a72dfb.js",
     "static/js/2.0a304a87.chunk.js",
     "static/css/main.ad4dff86.chunk.css",
-    "static/js/main.b6d8c662.chunk.js"
+    "static/js/main.eedd7d6c.chunk.js"
   ]
 }
