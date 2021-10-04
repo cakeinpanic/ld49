@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import deadLamp from './assets/dead_lamp.png'
 import lamp from './assets/lamp.png'
 import light from './assets/light.png'
 import mediumLight from './assets/medium_light.png'
@@ -14,8 +15,8 @@ import './Lamp.css'
 import { eLampState } from './lampState.enum'
 import { Speech } from './Speech'
 
-export function Lamp({showControls}: {showControls:boolean}) {
-  const { lampState,isGameOver } = useContext(ScoreContext)
+export function Lamp({ showControls }: { showControls: boolean }) {
+  const { lampState, isGameOver } = useContext(ScoreContext)
 
   useLightTransitions(lampState, isGameOver)
   useLightBlink(lampState, isGameOver)
@@ -38,11 +39,22 @@ export function Lamp({showControls}: {showControls:boolean}) {
     let opacity
     let lampImg
     let lightImg
-    opacity = (lampState === lampStateToRender) ? 1 : 0
+    opacity = (lampState === lampStateToRender) ? '100%' : 0
     switch (lampStateToRender) {
       case eLampState.nightmare:
+        if (isGameOver) {
+          opacity = 0
+        }
         lampImg = sadLamp
         lightImg = sadLight
+        break
+      case eLampState.dead:
+        if (isGameOver && lampState === eLampState.nightmare) {
+          opacity = 1
+          lampImg = deadLamp
+          break
+        }
+
         break
       case eLampState.sad:
       case eLampState.neutral:
@@ -65,7 +77,7 @@ export function Lamp({showControls}: {showControls:boolean}) {
 
   return (
     <div id={LAMP_ID}>
-      {[eLampState.nightmare, eLampState.sad, eLampState.neutral, eLampState.ok, eLampState.happy].map(
+      {[eLampState.dead, eLampState.nightmare, eLampState.sad, eLampState.neutral, eLampState.ok, eLampState.happy].map(
         state => getLampImage(state))}
       {showControls && <Speech/>}
     </div>

@@ -13,6 +13,7 @@ function setBgColor(lampState: eLampState, isGameOver: boolean) {
         start = 80
         end = 100
         opacity = 0
+        root?.style.setProperty('--bg', '#6ea8c7')
         break
       }
       start = 56

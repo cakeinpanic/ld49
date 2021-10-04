@@ -1,5 +1,6 @@
 export enum eLampState {
-  happy = 'happy', ok = 'ok', neutral = 'neutral', sad = 'sad', nightmare = 'nightmare'
+  happy = 'happy', ok = 'ok', neutral = 'neutral', sad = 'sad', nightmare = 'nightmare',
+  dead = 'dead'
 }
 
 export function getStateByScore(score: number): eLampState {
