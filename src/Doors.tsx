@@ -19,9 +19,13 @@ export const Doors = ({ onStart, allIsLoaded }: { allIsLoaded: boolean, onStart:
               Start
             </button>
 
-            <div className='right'></div>
+           <div style={{opacity: !allIsLoaded ? '100%':'0%'}}className="loading-btn btn">
+            Loading...
           </div>
+
+          <div className='right'></div>
         </div>
+      </div>
 
 
       </div>
