@@ -113,28 +113,49 @@ export function Lamp() {
 
   const imgLoaded = () => {
     setLoadedCount(loadedCount + 1)
+  }
 
-    if (loadedCount === 4) {
+  useEffect(()=>{
+    if (loadedCount === 2 * 5) {
       imagesAreLoaded && imagesAreLoaded(true)
     }
+  }, [loadedCount])
+
+  const getLampImage = (lampStateToRender: eLampState) => {
+    let opacity
+    let lampImg
+    let lightImg
+    opacity = (lampState === lampStateToRender) ? 1 : 0
+    switch (lampStateToRender) {
+      case eLampState.nightmare:
+
+        lampImg = sadLamp
+        lightImg = sadLight
+        break
+      case eLampState.sad:
+      case eLampState.neutral:
+        lampImg = lamp
+        lightImg = mediumLight
+        break
+      case eLampState.ok:
+      case eLampState.happy:
+        lightImg = light
+        lampImg = lamp
+        break
+    }
+    console.log(opacity, lampImg, lightImg)
+    return (
+      <div style={{ opacity }} key={lampStateToRender} className="lamp-container">
+        <img className="img light" src={lightImg} onLoad={imgLoaded}/>
+        <img className="img lamp" src={lampImg} onLoad={imgLoaded}/>
+      </div>
+    )
   }
 
   return (
     <div id={LAMP_ID}>
-      <img className="img light"
-           style={{ opacity: lampState === eLampState.happy || lampState === eLampState.ok ? undefined : 0 }}
-           src={light}
-           onLoad={imgLoaded}/>
-      <img className="img light"
-           style={{ opacity: lampState === eLampState.neutral || lampState === eLampState.sad ? undefined : 0 }}
-           src={mediumLight} onLoad={imgLoaded}/>
-      <img className="img lamp" style={{ opacity: lampState !== eLampState.nightmare ? 1 : 0 }} src={lamp}
-           onLoad={imgLoaded}/>
-
-      <img className="img light" style={{ opacity: lampState === eLampState.nightmare ? undefined : 0 }} src={sadLight}
-           onLoad={imgLoaded}/>
-      <img className="img lamp" style={{ opacity: lampState === eLampState.nightmare ? 1 : 0 }} src={sadLamp}
-           onLoad={imgLoaded}/>
+      {[eLampState.nightmare, eLampState.sad, eLampState.neutral, eLampState.ok, eLampState.happy].map(
+        state => getLampImage(state))}
     </div>
   )
 }
