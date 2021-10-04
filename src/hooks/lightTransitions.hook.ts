@@ -1,13 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
-import { eLampState } from './lampState.enum'
+import { eLampState } from '../lampState.enum'
+import { getRandomBetween, LAMP_ID } from './hook.utils'
 
-const LAMP_ID = 'lamp'
-
-function getRandomBetween([min, max]: number[]) {
-  const random = Math.random() * (max - min) + min
-
-  return random
-}
 
 export const useLightTransitions = (lampState: eLampState) => {
   const timeoutRef = useRef<any>()
