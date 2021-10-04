@@ -14,7 +14,7 @@ const happy = require('./assets/ludum_dare_beta_5.mp3').default
 const plus = require('./assets/ludum_dare_beta_plus.mp3').default
 const minus = require('./assets/ludum_dare_beta_minus.mp3').default
 
-const VOLUME = 0
+const VOLUME = .3
 const FADE_DURATION = 800
 const params = { loop: true, soundEnabled: true, volume: 0 }
 
