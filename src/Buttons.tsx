@@ -18,12 +18,12 @@ export function Buttons({doRestartGame}:{doRestartGame: Function}) {
 
   return (
     <>
-      {/*<div className="debug">*/}
-      {/*  <div className="btn btn--stripe" onClick={() => clicked(-1)}>minus</div>*/}
-      {/*  <div className="btn btn--stripe" onClick={() => clicked(1)}>plus</div>*/}
+      <div className="debug">
+        <div className="btn btn--stripe" onClick={() => clicked(-1)}>minus</div>
+        <div className="btn btn--stripe" onClick={() => clicked(1)}>plus</div>
 
-      {/*  <div className="score">Score: {score}</div>*/}
-      {/*</div>*/}
+        <div className="score">Score: {score}</div>
+      </div>
       <div className="Buttons-wrapper">
     <div className={"Buttons " + (isGameOver ? 'gameover': '')}>
 
