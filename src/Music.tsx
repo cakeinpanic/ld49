@@ -80,7 +80,6 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   )
 
   useEffect(() => {
-    console.log(prevScore.current, score)
     if (prevScore.current === score) {
       return
     }

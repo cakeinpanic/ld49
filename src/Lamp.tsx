@@ -8,13 +8,13 @@ import { LoadedContext } from './context/loaded.context'
 import { ScoreContext } from './context/score.context'
 import './Lamp.css'
 import { eLampState } from './lampState.enum'
-import { NIGTHMARE_BLINK_SCENARIO } from './lightScenarios'
+import { useLightTransitions } from './lightTransitions.hook'
 
 const LAMP_ID = 'lamp'
 
 function getRandomBetween([min, max]: number[]) {
   const random = Math.random() * (max - min) + min
-//  console.log(random, min, max)
+
   return random
 }
 
@@ -38,8 +38,8 @@ function setBgColor(lampState: eLampState) {
 
 export function Lamp() {
   const { lampState } = useContext(ScoreContext)
+  const colorTimeout = useLightTransitions(lampState)
 
-  const timeoutRef = useRef<any>()
   const blinkTimeoutRef = useRef<any>()
 
   const blink = useCallback(() => {
@@ -73,41 +73,10 @@ export function Lamp() {
     }, getRandomBetween(withoutLight))
   }, [lampState])
 
-  const changeColor = useCallback(() => {
-    clearTimeout(timeoutRef.current)
-    const root = document.getElementById(LAMP_ID)
-
-    if (lampState === eLampState.ok || lampState === eLampState.happy || lampState === eLampState.neutral) {
-      root?.style.setProperty('--brightness', getRandomBetween([70, 120]) + '%')
-      root?.style.setProperty('--hue', getRandomBetween([0, 180]) + 'deg')
-      root?.style.setProperty('--saturate', getRandomBetween([70, 120]) + '%')
-    } else {
-
-      root?.style.setProperty('--hue', 0 + 'deg')
-      root?.style.setProperty('--saturate', 30 + '%')
-    }
-    let nextChange = [1000, 1000]
-
-    switch (lampState) {
-      case eLampState.happy:
-        nextChange = [500, 1000]
-        break
-      case eLampState.ok:
-        nextChange = [2000, 5000]
-        break
-      case eLampState.neutral:
-        nextChange = [2000, 5000]
-        break
-    }
-
-    timeoutRef.current = setTimeout(changeColor, getRandomBetween(nextChange))
-  }, [lampState])
-
   useEffect(() => {
-    changeColor()
     blink()
     setBgColor(lampState)
-  }, [lampState, changeColor, blink])
+  }, [lampState, blink])
 
   const { imagesAreLoaded } = useContext(LoadedContext)
   const [loadedCount, setLoadedCount] = useState(0)
@@ -116,11 +85,11 @@ export function Lamp() {
     setLoadedCount(loadedCount + 1)
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     if (loadedCount === 2 * 5) {
       imagesAreLoaded && imagesAreLoaded(true)
     }
-  }, [loadedCount])
+  }, [loadedCount, imagesAreLoaded])
 
   const getLampImage = (lampStateToRender: eLampState) => {
     let opacity
@@ -144,7 +113,6 @@ export function Lamp() {
         lampImg = lamp
         break
     }
-    console.log(opacity, lampImg, lightImg)
     return (
       <div style={{ opacity }} key={lampStateToRender} className="lamp-container">
         <img className="img light" src={lightImg} onLoad={imgLoaded}/>
