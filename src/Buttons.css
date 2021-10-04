@@ -100,6 +100,8 @@
 .btn--stripe {
     overflow: hidden;
     position: relative;
+    animation: squiggly-anim 0.4s infinite;
+    perspective: 100vw;
 }
 .btn--stripe:after {
     content: "";
