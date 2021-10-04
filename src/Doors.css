@@ -24,11 +24,22 @@
 
 .welcome-btn {
     position: absolute;
-    bottom: 100px;
+    bottom: 80px;
     width: 100%;
     max-width: 579px;
-    pointer-events: none;
+    cursor: default;
     transition: all 1.5s;
+}
+
+.welcome-btn .ref {
+    opacity: .8;
+    font-size: .8em;
+}
+.welcome-btn a:active,
+.welcome-btn a:visited,
+.welcome-btn a:hover{
+   color: white;
+    pointer-events: all;
 }
 
 

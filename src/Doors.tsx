@@ -47,8 +47,10 @@ const [isStarted, setIsStarted] =useState(false)
       </svg>
 
     </div>
-      <button className="welcome-btn  btn--stripe btn"  style={{opacity: isStarted ? '0':'100%', bottom: isStarted ? '50px': '100px'}}>
-       Hi, this is a game about unstable emotions and things that surround us.<br/><br/>  It was designed to be played with sound turned on, moreover sound makes the gamplay whole. <br/> Please turn it on ❤️
+      <button className="welcome-btn  btn"  style={{opacity: isStarted ? '0':'100%', bottom: isStarted ? '20px': '60px'}}>
+       Hi, this is a small cozy game about unstable emotions and things that surround us.<br/><br/>  It was designed to be played with sound turned on, moreover sound makes the gamplay whole. <br/> Please turn it on ❤️
+        <br/><br/>
+        <span className="ref">Developed for <a rel="noreferrer"  target="_blank" href="https://ldjam.com/events/ludum-dare/49">ludum dare 49 game jam</a></span>
       </button>
     </>
   )
