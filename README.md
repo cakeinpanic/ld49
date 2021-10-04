@@ -6,5 +6,4 @@ https://cakeinpanic.github.io/ld49/
 * more phrases
 * add win and loose screens
 * add start screen and about screen
-* sounds for + and - score (jingels)
 * favicon and title
