@@ -42,6 +42,7 @@ function App() {
             {!allIsLoaded && <button className="loading-btn btn--stripe btn">
               Loading...
             </button>}
+            <div className='dark bg '/>
             <div className={"Game "+ lampState} style={{ opacity: allIsLoaded ? 1 : 0 }}>
               <div className='light bg '/>
               <Lamp/>

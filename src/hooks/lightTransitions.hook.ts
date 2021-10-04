@@ -3,7 +3,7 @@ import { eLampState } from '../lampState.enum'
 import { getRandomBetween, LAMP_ID } from './hook.utils'
 
 function setProps(lampState: eLampState) {
-  const root = document.getElementById(LAMP_ID)
+  const root = document.getElementById('root')
 
   if (lampState === eLampState.ok || lampState === eLampState.happy || lampState === eLampState.neutral) {
     const hue = lampState === eLampState.ok ? getRandomBetween([0, 180]) : getRandomBetween([70, 150])

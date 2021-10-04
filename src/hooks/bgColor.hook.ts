@@ -3,20 +3,41 @@ import { eLampState } from '../lampState.enum'
 
 function setBgColor(lampState: eLampState) {
   const root = document.body
+  let start = 10
+  let end = 80
+  let opacity = 100
 
   switch (lampState) {
     case eLampState.happy:
+      start = 56
+      end = 80
+      opacity = 50
+      break
     case eLampState.ok:
+      start = 40
+      end = 80
+      opacity = 60
+      break
     case eLampState.neutral:
-      root?.style.setProperty('--bg', '#3d3d46')
+      start = 30
+      end = 80
+      opacity = 70
       break
     case eLampState.sad:
-      root?.style.setProperty('--bg', '#1d1d26')
+      start = 30
+      end = 80
+      opacity = 90
       break
     case eLampState.nightmare:
-      root?.style.setProperty('--bg', '#1a1a1d')
+      start = 10
+      end = 80
+      opacity = 100
+      break
   }
 
+  root?.style.setProperty('--darkness-start', start + '%')
+  root?.style.setProperty('--darkness-end', end + '%')
+  root?.style.setProperty('--darkness-opacity', opacity + '%')
 }
 
 export const useBgColor = (lampState: eLampState) => {

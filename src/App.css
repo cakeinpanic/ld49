@@ -9,13 +9,35 @@
     justify-content: center;
 }
 
-.bg.light {
+.bg {
     width: 100%;
     height: 100%;
-    background: radial-gradient(rgba(255, 255, 0, .1) 10%, rgba(255, 255, 0, 0) 70%);
-    transition: filter 500ms linear, opacity 500ms ease-in-out;
     position: absolute;
-    opacity: var(--opacity);
+}
+
+
+:root {
+    --darkness-start: 10%;
+    --darkness-end: 80%;
+    --darkness-opacity: 100%;
+}
+
+.bg.light {
+    background: radial-gradient(ellipse, rgba(210, 163, 69, 0) 0%, rgb(210, 163, 69) 50%, rgba(210, 163, 69, 0) 60%,rgba(210, 163, 69, 0) 100%);
+    transition: filter 500ms linear, opacity 500ms ease-in-out;
+    opacity: calc(var(--opacity) * .14);
+
+    top: -21%;
+    left: -48%;
+    /*opacity: 14%;*/
+    width: 198%;
+    height: 136%;
+}
+
+.dark.bg {
+    background: radial-gradient(rgba(#000, 0) var(--darkness-start), rgba(#000, 1) var(--darkness-end));
+    opacity: var(--darkness-opacity);
+    transition: background 2s;
 }
 
 
@@ -41,7 +63,6 @@
     /*}*/
     /*#root:after{*/
     /*    content: 'sry, only on desktop';*/
-
     /*    color: white;*/
     /*}*/
     .Game {
