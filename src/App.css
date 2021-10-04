@@ -23,7 +23,7 @@
 }
 
 .bg.light {
-    background: radial-gradient(ellipse, rgba(210, 163, 69, 0) 0%, rgb(210, 163, 69) 50%, rgba(210, 163, 69, 0) 60%,rgba(210, 163, 69, 0) 100%);
+    background: radial-gradient(ellipse, rgba(210, 163, 69, 0) 0%, rgb(210, 163, 69) 50%, rgba(210, 163, 69, 0) 60%, rgba(210, 163, 69, 0) 100%);
     transition: filter 500ms linear, opacity 500ms ease-in-out;
     opacity: calc(var(--opacity) * .14);
 
@@ -57,38 +57,68 @@
     height: 100%;
 
 }
-.Game #lamp{
+
+.Game #lamp {
     opacity: 0;
     transform: scale(.5);
     top: 170px;
     transition: all 2s ease-out;
 }
-.Game.started #lamp{
+
+.Game.started #lamp {
     opacity: 100%;
     transform: scale(1);
     top: 71px;
 }
 
+.about{
+    position: absolute;
+    right: 54px;
+    top: 14px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 40%;
+    display: none;
+}
+
 @media (max-width: 650px) {
-    .Game #lamp{
+    .Game #lamp {
         transform: scale(.1);
         top: -10px;
         left: -140px;
         transition: all 2s ease-out;
     }
+
     .Game.started #lamp {
         opacity: 100%;
         transform: scale(0.5);
         top: -10px;
     }
-    /*.nightmare .light.bg {*/
-    /*    left: 41%;*/
-    /*    top: 28%;*/
-    /*    width: 50%;*/
-    /*    height: 27%;*/
-    /*    transition: opacity .1s ease-out;*/
-    /*    position: absolute;*/
-    /*}*/
+
+    .Buttons {
+        height: 200px;
+        justify-content: start;
+        overflow: scroll;
+        padding-top: 10px;
+        width: 1000px;
+        overflow-x: scroll;
+    }
+
+    .welcome-btn {
+        font-size: 9px !important;
+        width: 90% !important;
+        background: rgba(#000, .8) !important;
+        bottom: 5px !important
+    }
+
+    .doors-container .door {
+        width: 164px;
+        height: 255px;
+        left: calc(50% - 73px);
+        top: calc(50% - 167px);
+
+    }
 }
 
 .start-btn {

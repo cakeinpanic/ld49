@@ -24,6 +24,7 @@ export function Buttons({doRestartGame}:{doRestartGame: Function}) {
 
       {/*  <div className="score">Score: {score}</div>*/}
       {/*</div>*/}
+      <div className="Buttons-wrapper">
     <div className={"Buttons " + (isGameOver ? 'gameover': '')}>
 
       {
@@ -33,6 +34,7 @@ export function Buttons({doRestartGame}:{doRestartGame: Function}) {
                       onClick={() => clicked(a.score)}>{a.text}</div>)
       }
     </div>
+      </div>
       </>
   )
 }

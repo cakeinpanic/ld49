@@ -92,6 +92,15 @@
     text-align: center;
 }
 
+.Buttons-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    height: 210px;
+}
+
 .gameover .btn {
     max-width: 400px;
 }
