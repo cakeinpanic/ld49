@@ -173,4 +173,26 @@ export const REST_PHRASES: IState[] = [
       }
     ]
   },
+  {
+    'question': 'Smart lamps?! Why do they buy them? Am I stupid to you?',
+    used: false,
+    'answers': [
+      {
+        text: 'You could ask google if you had wifi',
+        'score': -3
+      },
+      {
+        'text': 'People appreciate your warm light, have you notice that?',
+        'score': 1
+      },
+      {
+        'text': 'You are just to old to get it',
+        'score': -2
+      },
+      {
+        'text': 'You just different, there are not better than you',
+        'score': 0.5
+      }
+    ]
+  },
 ]

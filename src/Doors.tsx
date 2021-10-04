@@ -18,6 +18,10 @@ const [isStarted, setIsStarted] =useState(false)
             Start
           </button>
 
+           <div style={{opacity: !allIsLoaded ? '100%':'0%'}}className="loading-btn btn">
+            Loading...
+          </div>
+
           <div className='right'></div>
         </div>
       </div>
