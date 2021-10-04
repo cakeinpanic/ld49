@@ -38,7 +38,9 @@ function setBgColor(lampState: eLampState, isGameOver: boolean) {
       if(isGameOver){
         start = 0
         end = 100
-        opacity = 100
+        opacity = 100;
+        root?.style.setProperty('--bg', '#0e0e15')
+
         break
       }
       start = 10

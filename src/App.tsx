@@ -39,18 +39,22 @@ function App() {
       setShowControls(true)
     }, 3000)
   }
+  const doRestartGame = () => {
+    document.location.reload()
+  }
+
   return (
     <>
       <LoadedContextProvider setAllIsLoaded={setAllIsLoaded}>
         <ScoreContext.Provider value={{ isGameOver, score, setScore, lampState }}>
           <SpeechContextProvider isGameOver={isGameOver} setGameOver={setGameOver}>
-
-            <div className={'Game ' + lampState + (gameStarted ? ' started' : '')}>
+            <div
+              className={['Game', lampState, (gameStarted ? ' started' : ''), isGameOver ? 'gameover' : ''].join(' ')}>
               <div className='dark bg '/>
               <div className='light bg '/>
               <Lamp showControls={showControls}/>
             </div>
-            {showControls && <Buttons/>}
+            {showControls && <Buttons doRestartGame={doRestartGame}/>}
             {showDoor && <Doors allIsLoaded={allIsLoaded} onStart={startTheGame}/>}
             <Music gameStarted={gameStarted}/>
           </SpeechContextProvider>

@@ -88,7 +88,14 @@
     line-height: 1.4;
     font-size: 14px;
     max-width: 200px;
+    white-space: break-spaces;
+    text-align: center;
 }
+
+.gameover .btn {
+    max-width: 400px;
+}
+
 
 .btn--stripe {
     overflow: hidden;
