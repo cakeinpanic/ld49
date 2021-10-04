@@ -13,7 +13,7 @@ export const Doors = ({ onStart, allIsLoaded }: { allIsLoaded: boolean, onStart:
 
   return (<>
       <div className="doors-container">
-        <div className='door' onClick={start}>
+        <div className='door' onClick={()=> allIsLoaded && start()}>
           <div className='face'>
             <button style={{ opacity: allIsLoaded ? '100%' : '0%' }} className="loading-btn btn--stripe btn">
               Start
