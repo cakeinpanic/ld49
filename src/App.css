@@ -7,6 +7,7 @@
     align-content: center;
     align-items: center;
     justify-content: center;
+
 }
 
 .bg {
@@ -27,11 +28,11 @@
     transition: filter 500ms linear, opacity 500ms ease-in-out;
     opacity: calc(var(--opacity) * .14);
 
-    top: -21%;
-    left: -48%;
-    /*opacity: 14%;*/
-    width: 198%;
-    height: 136%;
+    top: 0;
+    left: 0;
+    width: 98vw;
+    height: 100vh;
+    position: absolute;
 }
 
 .dark.bg {
@@ -47,6 +48,7 @@
     width: 50%;
     height: 47%;
     transition: opacity .1s ease-out;
+    position: absolute;
 }
 
 .Game {

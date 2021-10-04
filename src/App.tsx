@@ -43,8 +43,9 @@ function App() {
               Loading...
             </button>}
             <div className='dark bg '/>
+            <div className='light bg '/>
             <div className={"Game "+ lampState} style={{ opacity: allIsLoaded ? 1 : 0 }}>
-              <div className='light bg '/>
+
               <Lamp/>
               {showControls && <Speech/>}
               {
@@ -55,7 +56,9 @@ function App() {
                 </button>
               }
             </div>
+
             {showControls && <Buttons/>}
+
           </ScoreContext.Provider>
         </SpeechContextProvider>
       </LoadedContextProvider>
