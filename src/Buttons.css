@@ -42,7 +42,6 @@
     position: relative;
     top: 10px;
     left: 13px;
-    font-family: 'BALOO 2';
     color: white;
     font-size: 20px;
 }
@@ -83,7 +82,6 @@
     border-radius: 20px;
     margin-bottom: 16px;
     transition: all 0.5s ease;
-    font-family: "Baloo 2", cursive;
     font-weight: bold;
     opacity: .8;
     letter-spacing: 1px;
