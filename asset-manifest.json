@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "./static/css/main.8c871aab.chunk.css",
-    "main.js": "./static/js/main.8cc2a937.chunk.js",
-    "main.js.map": "./static/js/main.8cc2a937.chunk.js.map",
+    "main.js": "./static/js/main.4c7feb9e.chunk.js",
+    "main.js.map": "./static/js/main.4c7feb9e.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.2078c13d.js",
     "runtime-main.js.map": "./static/js/runtime-main.2078c13d.js.map",
     "static/js/2.0a304a87.chunk.js": "./static/js/2.0a304a87.chunk.js",
@@ -11,13 +11,13 @@
     "static/js/3.187bcd1c.chunk.js.map": "./static/js/3.187bcd1c.chunk.js.map",
     "static/js/4.fcb32dd7.chunk.js": "./static/js/4.fcb32dd7.chunk.js",
     "static/js/4.fcb32dd7.chunk.js.map": "./static/js/4.fcb32dd7.chunk.js.map",
-    "ludum_dare_beta_-5.mp3": "./1e08c02ffb091b99fb2facf24618c7f8.mp3",
-    "ludum_dare_beta_plus.mp3": "./2547c50ab2ea29129121bb2e92415d91.mp3",
-    "ludum_dare_beta_minus.mp3": "./2ab3acbb7166e282f2465998f93c1c7e.mp3",
-    "ludum_dare_beta_2.5.mp3": "./786120ca73fc6fc78ce66d044b9d37d2.mp3",
-    "ludum_dare_beta_5.mp3": "./de8730f7f67fb59b3387c7dab07f1b00.mp3",
-    "ludum_dare_beta_0.mp3": "./e50d51ee58c6ec04b8cffdb182707bfa.mp3",
-    "ludum_dare_beta_-2.5.mp3": "./ed14d2196c6a0a8bf20a14c8c076ddd8.mp3",
+    "ludum_dare_beta_minus.mp3": "./1badcb277ed35576d75c4bb4657c863b.mp3",
+    "ludum_dare_beta_0.mp3": "./411e9063d5571dac1f0799b74de1534c.mp3",
+    "ludum_dare_beta_5.mp3": "./66526c940446cd6c47ec31ed63b2831f.mp3",
+    "ludum_dare_beta_plus.mp3": "./9d6a171f3042df0c877757715f8e2e81.mp3",
+    "ludum_dare_beta_2.5.mp3": "./9e52c93ec850e42025e2097e52d44358.mp3",
+    "ludum_dare_beta_-5.mp3": "./c06fbfabbaa4d98c474ab9edc5ebad5e.mp3",
+    "ludum_dare_beta_-2.5.mp3": "./ea920845d9f44c18c2d856cb22da50fa.mp3",
     "index.html": "./index.html",
     "static/css/main.8c871aab.chunk.css.map": "./static/css/main.8c871aab.chunk.css.map",
     "static/js/2.0a304a87.chunk.js.LICENSE.txt": "./static/js/2.0a304a87.chunk.js.LICENSE.txt",
@@ -34,6 +34,6 @@
     "static/js/runtime-main.2078c13d.js",
     "static/js/2.0a304a87.chunk.js",
     "static/css/main.8c871aab.chunk.css",
-    "static/js/main.8cc2a937.chunk.js"
+    "static/js/main.4c7feb9e.chunk.js"
   ]
 }
