@@ -105,8 +105,9 @@
         justify-content: start;
         overflow: scroll;
         padding-top: 10px;
-        width: 1000px;
-        overflow-x: scroll;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        flex-wrap: wrap;
     }
 
     .welcome-btn {
@@ -117,6 +118,7 @@
     }
     .Buttons  .btn--stripe{
         font-size: 11px;
+        width: 100%;
     }
     .Buttons,.Buttons-wrapper{
         height: 150px!important;
