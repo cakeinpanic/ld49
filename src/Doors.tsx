@@ -19,11 +19,9 @@ export const Doors = ({ onStart, allIsLoaded }: { allIsLoaded: boolean, onStart:
               Start
             </button>
 
-           <div style={{opacity: !allIsLoaded ? '1':'0'}}className="running-stripe preloader">
-            Loading...
-          </div>
+            <div style={{opacity: !allIsLoaded ? '1':'0'}}className="running-stripe preloader"/>
 
-          <div className='right'></div>
+          <div className='right'/>
         </div>
       </div>
 
