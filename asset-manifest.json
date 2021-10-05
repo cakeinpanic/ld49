@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.7f51fc75.chunk.css",
+    "main.css": "./static/css/main.46d2dc1b.chunk.css",
     "main.js": "./static/js/main.43d1fdba.chunk.js",
     "main.js.map": "./static/js/main.43d1fdba.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.2078c13d.js",
@@ -19,7 +19,7 @@
     "ludum_dare_beta_-5.mp3": "./c06fbfabbaa4d98c474ab9edc5ebad5e.mp3",
     "ludum_dare_beta_-2.5.mp3": "./ea920845d9f44c18c2d856cb22da50fa.mp3",
     "index.html": "./index.html",
-    "static/css/main.7f51fc75.chunk.css.map": "./static/css/main.7f51fc75.chunk.css.map",
+    "static/css/main.46d2dc1b.chunk.css.map": "./static/css/main.46d2dc1b.chunk.css.map",
     "static/js/2.0a304a87.chunk.js.LICENSE.txt": "./static/js/2.0a304a87.chunk.js.LICENSE.txt",
     "static/js/3.187bcd1c.chunk.js.LICENSE.txt": "./static/js/3.187bcd1c.chunk.js.LICENSE.txt",
     "static/media/dead_lamp.4ef1c2fd.png": "./static/media/dead_lamp.4ef1c2fd.png",
@@ -33,7 +33,7 @@
   "entrypoints": [
     "static/js/runtime-main.2078c13d.js",
     "static/js/2.0a304a87.chunk.js",
-    "static/css/main.7f51fc75.chunk.css",
+    "static/css/main.46d2dc1b.chunk.css",
     "static/js/main.43d1fdba.chunk.js"
   ]
 }
