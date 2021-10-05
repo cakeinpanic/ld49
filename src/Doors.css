@@ -5,7 +5,7 @@
 .loading-btn {
     top: 33px;
     left: 25px;
-    opacity: 1;
+    opacity: 100%;
     transition: all 1s;
 }
 
@@ -116,17 +116,17 @@ body .door:nth-of-type(1) .face {
 @-webkit-keyframes scaling {
     0% {
         transform: translateZ(0vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 0;
     }
     50% {
         transform: translateZ(100vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 1;
     }
     95% {
         transform: translateZ(200vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 2;
     }
     100% {
@@ -139,17 +139,17 @@ body .door:nth-of-type(1) .face {
 @keyframes scaling {
     0% {
         transform: translateZ(0vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 0;
     }
     50% {
         transform: translateZ(100vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 1;
     }
     95% {
         transform: translateZ(200vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 2;
     }
     100% {
@@ -162,17 +162,17 @@ body .door:nth-of-type(1) .face {
 @keyframes scaling {
     0% {
         transform: translateZ(0vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 0;
     }
     50% {
         transform: translateZ(100vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 1;
     }
     95% {
         transform: translateZ(200vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 2;
     }
     100% {
@@ -185,17 +185,17 @@ body .door:nth-of-type(1) .face {
 @keyframes scaling {
     0% {
         transform: translateZ(0vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 0;
     }
     50% {
         transform: translateZ(100vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 1;
     }
     95% {
         transform: translateZ(200vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 2;
     }
     100% {
@@ -208,17 +208,17 @@ body .door:nth-of-type(1) .face {
 @keyframes scaling {
     0% {
         transform: translateZ(0vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 0;
     }
     50% {
         transform: translateZ(100vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 1;
     }
     95% {
         transform: translateZ(200vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 2;
     }
     100% {
@@ -231,17 +231,17 @@ body .door:nth-of-type(1) .face {
 @keyframes scaling {
     0% {
         transform: translateZ(0vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 0;
     }
     50% {
         transform: translateZ(100vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 1;
     }
     95% {
         transform: translateZ(200vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 2;
     }
     100% {
@@ -254,17 +254,17 @@ body .door:nth-of-type(1) .face {
 @keyframes scaling {
     0% {
         transform: translateZ(0vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 0;
     }
     50% {
         transform: translateZ(100vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 1;
     }
     95% {
         transform: translateZ(200vw);
-        opacity: 1;
+        opacity: 100%;
         z-index: 2;
     }
     100% {
