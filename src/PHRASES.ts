@@ -139,37 +139,37 @@ export const REST_PHRASES: IState[] = [
       },
       {
         'text': 'Hug',
-        'score': -0.5
+        'score': 0.5
       },
       {
         'text': 'I heard that they have a nice salary',
-        'score': -1
+        'score': .5
       },
       {
-        'text': 'You should give it a try. I belive in you.',
+        'text': 'You should give it a try. I believe in you.',
         'score': 1
       }
     ]
   },
   {
-    'question': 'They keep forgeting to turn me off, I can burn out!',
+    'question': 'They keep forgetting to turn me off, I can burn out!',
     used: false,
     'answers': [
       {
         text: 'I don\'t know. You should ask your them, not me',
-        'score': -1
+        'score': -2
       },
       {
         'text': 'I thought you like your work',
-        'score': -2
+        'score': -.5
       },
       {
         'text': '...',
         'score': 0
       },
       {
-        'text': 'You should not wait for their attention. You are just a lamp',
-        'score': -2
+        'text': 'You should not wait for their attention. Remind of yourself',
+        'score': 1
       }
     ]
   },
@@ -178,7 +178,7 @@ export const REST_PHRASES: IState[] = [
     used: false,
     'answers': [
       {
-        text: 'Oh lamps! I think I\'am too', //?? TODO
+        text: 'Oh lamps, did not know you also can burn out',
         'score': 0
       },
       {
@@ -201,24 +201,24 @@ export const REST_PHRASES: IState[] = [
     'answers': [
       {
         text: 'You could ask google if you had wifi',
-        'score': -3
-      },
-      {
-        'text': 'People appreciate your warm light, have you notice that?',
-        'score': 1
-      },
-      {
-        'text': 'You are just to old to get it',
         'score': -2
       },
       {
-        'text': 'You just different, there are not better than you',
-        'score': 0.5
+        'text': 'People appreciate your warm light, have you notice that?',
+        'score': 2
+      },
+      {
+        'text': 'You are just too old to get it',
+        'score': -1
+      },
+      {
+        'text': 'You are just different, there are not better than you',
+        'score': 1
       }
     ]
   },
   {
-    'question': 'I have been feeling irritable lately',
+    'question': 'I have been feeling irritated lately',
     used: false,
     'answers': [
       {
@@ -226,11 +226,11 @@ export const REST_PHRASES: IState[] = [
         'score': -2
       },
       {
-        'text': 'You should find a girlfiend. She will chill you',
-        'score': -2
+        'text': 'You should find a girlfriend. She will chill you',
+        'score': -.5
       },
       {
-        'text': 'Tell me what irrite you most',
+        'text': 'Tell me what irritates you the most',
         'score': 1
       },
       {
@@ -245,11 +245,11 @@ export const REST_PHRASES: IState[] = [
     'answers': [
       {
         text: 'I think that we all do the best we can',
-        'score': 1
+        'score': -1
       },
       {
         'text': 'What blocks you?',
-        'score': -1
+        'score': 1
       },
       {
         'text': 'Just work harder',
