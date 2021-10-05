@@ -112,6 +112,9 @@
     animation: squiggly-anim 0.4s infinite;
     perspective: 100vw;
 }
+
+
+
 .btn--stripe:after {
     content: "";
     display: block;
@@ -140,4 +143,21 @@
 
 .btn--radius {
     border-radius: 36px;
+}
+
+.running-stripe {
+    display: block;
+    height: 7px;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-top: 1px solid white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-size: 7px 7px;
+    background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
+    border-top: 1px solid white;
+    -webkit-animation: stripe-slide 12s infinite linear forwards;
+    animation: stripe-slide 12s infinite linear forwards;
 }
