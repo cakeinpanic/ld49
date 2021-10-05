@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <link href="https://fonts.googleapis.com/css?family=Baloo+2:400,800" rel="stylesheet"/>
     <App/>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'none' }}>
       <defs>
