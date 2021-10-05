@@ -84,15 +84,15 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     if (prevScore.current === score) {
       return
     }
+
+    if (!isAllMuted) {
+      if (prevScore.current < score) {
+        plusJingle?.play()
+      } else {
+        minusJingle?.play()
+      }
+    }
     prevScore.current = score
-    if (isAllMuted) {
-      return
-    }
-    if (prevScore.current < score) {
-      plusJingle?.play()
-    } else {
-      minusJingle?.play()
-    }
 
   }, [score, minusJingle, plusJingle, isAllMuted])
 

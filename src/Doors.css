@@ -39,6 +39,7 @@
     font-size: 15px;
     text-align: center;
     padding-bottom: 10px;
+    pointer-events: none;
 }
 
 .loading-btn {
