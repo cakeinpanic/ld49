@@ -156,7 +156,7 @@ export const REST_PHRASES: IState[] = [
     used: false,
     'answers': [
       {
-        text: 'I don\'t know. You should ask your them, not me',
+        text: 'I don\'t know. You should ask them, not me',
         'score': -2
       },
       {
