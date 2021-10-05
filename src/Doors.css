@@ -33,14 +33,17 @@
 .preloader {
     position: absolute;
     width: 88px;
-    font-size: .7em;
     top: 59px;
     left: 43px;
-
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 .loading-btn {
     position: absolute;
+    cursor: pointer;
 }
 
 .welcome-btn .ref {
