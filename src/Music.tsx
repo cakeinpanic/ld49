@@ -84,13 +84,17 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     if (prevScore.current === score) {
       return
     }
+    prevScore.current = score
+    if (isAllMuted) {
+      return
+    }
     if (prevScore.current < score) {
       plusJingle?.play()
     } else {
       minusJingle?.play()
     }
-    prevScore.current = score
-  }, [score, minusJingle, plusJingle])
+
+  }, [score, minusJingle, plusJingle, isAllMuted])
 
   useEffect(() => {
     doSound(currentSound, eLampState.neutral, neutralSound, isAllMuted)
@@ -102,7 +106,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
 
   const muteAll = () => {
     setIsAllMuted(!isAllMuted)
-    localStorage.setItem('mute', ''+ !isAllMuted )
+    localStorage.setItem('mute', '' + !isAllMuted)
   }
 
   useEffect(() => {
