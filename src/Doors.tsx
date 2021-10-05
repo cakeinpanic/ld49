@@ -15,11 +15,11 @@ export const Doors = ({ onStart, allIsLoaded }: { allIsLoaded: boolean, onStart:
       <div className="doors-container">
         <div className='door' onClick={()=> allIsLoaded && start()}>
           <div className='face'>
-            <button style={{ opacity: allIsLoaded ? '100%' : '0%' }} className="loading-btn btn--stripe btn">
+            <button style={{ opacity: allIsLoaded ? '1' : '0' }} className="loading-btn btn--stripe btn">
               Start
             </button>
 
-           <div style={{opacity: !allIsLoaded ? '100%':'0%'}}className="running-stripe preloader">
+           <div style={{opacity: !allIsLoaded ? '1':'0'}}className="running-stripe preloader">
             Loading...
           </div>
 
@@ -31,7 +31,7 @@ export const Doors = ({ onStart, allIsLoaded }: { allIsLoaded: boolean, onStart:
       </div>
       {/*<div className="about" onClick={()=>{setShowAbout(true)}}>About</div>*/}
       <button className="welcome-btn  btn"
-              style={{ display: showAbout ? 'block': undefined ,opacity: isStarted ? '0' : '100%', bottom: isStarted ? '20px' : '60px' }}>
+              style={{ display: showAbout ? 'block': undefined ,opacity: isStarted ? '0' : '1', bottom: isStarted ? '20px' : '60px' }}>
         Hi, this is a small cozy game about unstable emotions and things that surround us.<br/><br/> It was designed to
         be played with sound turned on, moreover sound makes the gamplay whole. <br/> Please turn it on ❤️
         <br/><br/>

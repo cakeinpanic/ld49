@@ -19,7 +19,7 @@
 :root {
     --darkness-start: 10%;
     --darkness-end: 80%;
-    --darkness-opacity: 100%;
+    --darkness-opacity: 1;
 }
 
 .bg.light {
@@ -82,7 +82,7 @@
     color: white;
     font-weight: bold;
     font-size: 12px;
-    opacity: 40%;
+    opacity: .4;
     display: none;
 }
 
@@ -95,7 +95,7 @@
     }
 
     .Game.started #lamp {
-        opacity: 100%;
+        opacity: 1;
         transform: scale(0.5);
         top: -10px;
     }
@@ -156,7 +156,7 @@
 
 .mute {
     filter: invert(100%);
-    opacity: 40%;
+    opacity: .4;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -167,9 +167,9 @@
 }
 
 .mute.true {
-    opacity: 90%;
+    opacity: .9;
 }
 
 .mute:hover {
-    opacity: 90%;
+    opacity: .9;
 }
