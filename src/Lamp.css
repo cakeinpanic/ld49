@@ -1,10 +1,9 @@
 
 #lamp{
-    position: absolute;
     width: 600px;
     height: 600px;
-    top: 71px;
-    left: 25%;
+    align-self: center;
+
 }
 .img {
     width: 100%;
