@@ -13,25 +13,25 @@ export const FIRST_PHRASE: IState = {
       'score': 0
     },
     {
-      'text': 'Just give me that light already',
+      'text': 'Just give me the damn light',
       'score': -1.5
     },
     {
-      'text': 'You look sad, Greg, wanna talk?',
+      'text': 'You seem out of sorts, Greg, wanna talk?',
       'score': .5
     },
     {
-      'text': 'Wow, talking lamp, lol',
+      'text': 'Wow, a talking lamp, lol',
       'score': -.5
     }
   ]
 }
 export const WIN_PHRASE: IState = {
-  'question': 'Thank you, really, thank you! I was so unstable, I thought I\'m gonna die from loneliness. But now I believe in my future',
+  'question': 'Thanks a lot, I appreciate it. I was so unstable, I thought I\'m gonna die out of loneliness. But now I believe in my future',
   used: false,
   'answers': [
     {
-      'text': 'Bye, Greg! It was so nice meeting you. I\'m glad I helped! Let\'s chat again, I enjoyed it',
+      'text': 'Bye, Greg! It was so nice meeting you. I\'m glad I helped! Let\'s chat again soon, I enjoyed it',
       'score': 0
     },
 
@@ -39,7 +39,7 @@ export const WIN_PHRASE: IState = {
 }
 
 export const LOOSE_PHRASE: IState = {
-  'question': 'I was unstable in the beginning, but now I am just dead, just dead, I can not move, I can not light. I will stay here on the floor forever',
+  'question': 'I was unstable in the beginning, but now I am just dead, just for real. I can not move, I can not light. I will stay right here on the floor forever',
   used: false,
   'answers': [
     {
