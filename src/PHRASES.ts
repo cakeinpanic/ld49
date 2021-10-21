@@ -43,7 +43,7 @@ export const LOOSE_PHRASE: IState = {
   used: false,
   'answers': [
     {
-      'text': 'Oh no, did I really make you so desperate by only few words I said?\nAre words SO powerful?\nI want to try again',
+      'text': 'Oh no, did I really make you so desperate by only a few words I said?\nAre words SO powerful?\nI want to try again',
       'score': 0
     },
 
