@@ -86,7 +86,7 @@ export const REST_PHRASES: IState[] = [
     ]
   },
   {
-    'question': 'I feel abused, everyone uses me to get what they want!',
+    'question': 'I feel used, everyone exploit me to get what they want!',
     used: false,
     'answers': [
       {
@@ -108,7 +108,7 @@ export const REST_PHRASES: IState[] = [
     ]
   },
   {
-    'question': 'I don\'t have any friends. Why do other lamps avoid me?',
+    'question': 'I don\'t have any friends. Why are other lamps avoiding me?',
     used: false,
     'answers': [
       {
@@ -120,30 +120,30 @@ export const REST_PHRASES: IState[] = [
         'score': -2
       },
       {
-        'text': 'Start looking for another lamp',
+        'text': '[Start looking for another lamp]',
         'score': -1
       },
       {
-        'text': 'Tell me more about other lamps. Why do you think so?',
+        'text': 'Tell me more about the other lamps. Why do you think so?',
         'score': .5
       }
     ]
   },
   {
-    'question': 'Sometimes I think about changing my job. Is it real for lamp like me to become a game dev?',
+    'question': 'Sometimes I think about changing my job. Is it possible for a lamp like me to become a game dev?',
     used: false,
     'answers': [
       {
-        text: 'Nah, you should be good at math',
-        'score': -2
+        text: 'Nah, you should be really good at math',
+        'score': -1.5
       },
       {
-        'text': 'Hug',
+        'text': '[Hug]',
         'score': 0.5
       },
       {
-        'text': 'I heard that they have a nice salary',
-        'score': .5
+        'text': 'I heard they have a nice salary',
+        'score': -0.5
       },
       {
         'text': 'You should give it a try. I believe in you.',
